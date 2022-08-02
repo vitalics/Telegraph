@@ -1,0 +1,73 @@
+# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
+
+name: build and publish release to npm
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_type:
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+        description: "version type, can be 'patch', 'minor', 'major'"
+        required: true
+        default: patch
+  push:
+    branches:
+      - main
+    tags:
+      - "*"
+
+jobs:
+  publish:
+    name: "Build and publish to npm"
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7.5.0
+          run_install: |
+            - args: []
+      - run: pnpm build
+      - run: pnpm release --type ${{ github.event.inputs.release_type || 'patch' }}
+      - name: Automated Version ${{ github.event.inputs.release_type || 'patch' }}
+        uses: "phips28/gh-action-bump-version@master"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          target-branch: "main"
+          default: ${{ github.event.inputs.release_type || 'patch' }}
+          commit-message: "CI: bumps version to {{version}}"
+      - uses: fregante/release-with-changelog@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-template: "- {title} ← {hash}"
+          template: |
+            ### Changelog
+            {commits}
+            Full changelog: {range}
+            made with ❤ from Vitali Haradkou
+      # publish to npm each package in separate npm.js
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+      # publish new version with docusaurus
+
+      - run: |
+          cd packages/docs &&
+          GIT_TAG = $(git describe --abbrev=0) &&
+          pnpm docusaurus build &&
+          pnpm docusaurus docs:version "${GIT_TAG}" &&
+          pnpm deploy

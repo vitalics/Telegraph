@@ -1,0 +1,29 @@
+{
+  "name": "@tlgr/component",
+  "version": "1.0.0",
+  "description": "telegram component builder",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json",
+    "./inline": "./lib/inline.js",
+    "./component": null
+  },
+  "keywords": [
+    "Telegram",
+    "Common Component",
+    "Common",
+    "Component"
+  ],
+  "author": "Vitali Haradkou",
+  "license": "Apache 2.0",
+  "peerDependencies": {
+    "telegraf": "4.8.6"
+  },
+  "dependencies": {
+    "telegraf": "4.8.6"
+  }
+}
