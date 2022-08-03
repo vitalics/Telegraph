@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_tlgr_docs=self.webpackChunk_tlgr_docs||[]).push([[535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"1.0.0 is here!","permalink":"/blog/release 1.0.0"}]}')}}]);
