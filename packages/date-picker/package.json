@@ -1,0 +1,33 @@
+{
+  "name": "@tlgr/date-picker",
+  "version": "1.0.0",
+  "description": "date and month picker components",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json",
+    "./bin": null,
+    "./constants": null,
+    "./day": "./lib/day.js",
+    "./helper": null,
+    "./month": "./lib/month.js",
+    "./types": "./lib/types.js",
+    "./component": null
+  },
+  "keywords": [
+    "Date Picker",
+    "Month Picker",
+    "Picker",
+    "Date"
+  ],
+  "author": "Vitali Haradkou",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "@tlgr/button": "workspace:^",
+    "@tlgr/component": "workspace:^",
+    "dayjs": "1.11.4"
+  }
+}

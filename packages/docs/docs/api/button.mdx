@@ -1,0 +1,94 @@
+# Button
+
+Provides api for a new button with custom name.
+
+Button API is similar as for Node.js [EventEmitter](https://nodejs.org/dist/latest-v16.x/docs/api/events.html#class-eventemitter) class, but provides only `on`, `once`, `emit` functions.
+
+```jsx
+import { Button } from "@tlgr/button";
+const button = new Button(options);
+```
+
+## `constructor(bot, name, [options])`
+
+<small> added in 1.0.0 </small>
+
+- `bot` - <[Object][object]>. [Telegraf](https://telegraf.js.org/classes/Telegraf.html) instance.
+- `name` - <[string][string]>. Button name, or text which user will see.
+- `options?` - <[Object][object]>
+  - `prefix` - <[string][string]>. Name of the control. Default is `@tlgr/button`
+  - `disableUUID` - <[boolean][boolean]>. Enable/Disable uuid generation for button control. It guarantee about button has be unique name. Default is `false`
+  - `payloadDivider` -<[string][string]>. Payload divider between name and payload. Default is `-`
+  - `alert` - <[Object][object]>. Alert options. Default is `undefined`
+    - `text`- <[string][string]>. Alert text.
+    - `mode` - <[string][string]>. Alert mode. Possible values: `text` or `modal`. Default is `text`
+    - `show` - <[boolean][boolean]>. Show modal or not. Default is `false`.
+
+## methods
+
+### `render([payload])`
+
+<small> added in 1.0.0 </small>
+
+- `payload` - <[string][string]> - payload name. Default is `undefined`. Accepts [`number`][number], [`string`][string], [`boolean`][boolean] or [`symbol`][symbol] types.
+
+### `on(event, callback)`
+
+<small> added in 1.0.0 </small>
+
+- `event` - <[string][string]>. Event name. Only can be `click` value. Other events will be ignored.
+- `callback` - <[Function][function]>. Callback function
+
+  - `ctx` - <[Object][object]>. [Telegraf Context](https://telegraf.js.org/classes/Context.html#addStickerToSet).
+  - `button` - <[Object][object]>. [Button](/docs/api/button) instance.
+
+### `once(event, callback)`
+
+<small>added in 1.0.0</small>
+
+- `event` - <[string][string]>. Event name. Only can be `click` value. Other events will be ignored.
+- `callback` - <[Function][function]>. Callback function
+  - `ctx` - <[Object][object]>. [Telegraf Context](https://telegraf.js.org/classes/Context.html#addStickerToSet).
+  - `button` - <[Object][object]>. [Button](/docs/api/button) instance.
+
+### `emit(event, callback)`
+
+<small>added in 1.0.0</small>
+
+- `event` - <[string][string]>. Event name. Only can be `click` value. Other events will be ignored.
+- `ctx` - <[Object][object]>. [Telegraf Context](https://telegraf.js.org/classes/Context.html#addStickerToSet).
+- `button` - <[Object][object]>. [Button](/docs/api/button) instance.
+
+## properties
+
+### `uuid`
+
+<small>added in 1.0.0</small>
+
+#### modifiers
+
+- readonly
+
+#### description
+
+Random generated hash. Returns `undefined` in case if `options.disableUUID=true`
+
+### `name`
+
+<small>added in 1.0.0</small>
+
+#### modifiers
+
+- readonly
+- getter
+
+#### description
+
+Resolved button name. This property consist of `options.prefix` and `options.disableUUID`.
+
+[object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+[function]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions
+[string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type
+[boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#boolean_type
+[number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#numeric_types
+[symbol]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#symbol_type
