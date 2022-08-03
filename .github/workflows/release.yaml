@@ -62,5 +62,10 @@ jobs:
           cat .npmrc
           pnpm zx scripts/publish.mjs
       # publish new version with docusaurus
-      - run: |
-          pnpm zx scripts/docs.mjs
+      - run: pnpm zx scripts/docs.mjs
+      - name: Upload Docusaurus
+        uses: actions/upload-artifact@v3
+        with:
+          name: docusaurus
+          path: packages/docs/build
+          retention-days: 5
