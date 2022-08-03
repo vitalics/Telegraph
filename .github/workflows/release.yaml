@@ -44,6 +44,7 @@ jobs:
       - run: |
           git config --global user.name "github-actions[bot]" &&
           git config --global user.email "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
+          echo "GIT_USER=${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
       - run: pnpm release --type ${{ github.event.inputs.release_type || 'patch' }}
       - uses: fregante/release-with-changelog@v3
         with:
