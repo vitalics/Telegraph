@@ -58,7 +58,7 @@ await $`git commit -m ${commitMsg}`;
 await $`git tag -a ${version.trim()} -m ${commitMsg}`;
 
 // push tag
-await $`git push origin ${version.trim()} --tags`;
+await $`git push origin ${version.trim()} --tags -f`;
 
 const { baseBranch } = await fs.readJSON('.changeset/config.json');
 // push main
