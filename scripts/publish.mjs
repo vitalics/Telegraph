@@ -1,3 +1,3 @@
 import { $ } from 'zx';
 
-await $`npm publish --access restricted -ws`;
+await $`npm publish --access public -ws`;
