@@ -1,12 +1,10 @@
 #!/usr/bin/env zx
-import { $, argv, fs, os, path } from "zx";
+import { $, argv, fs, os } from "zx";
 
 const type = argv.type || argv.t;
 // for manual releases
 let msg = '';
 const upcomingFile = 'upcoming.md';
-
-const cwd = process.cwd();
 
 function assertType(type) {
   if (!['major', 'minor', 'patch'].includes(type)) {
@@ -31,10 +29,7 @@ if (!fs.existsSync(upcomingFile)) {
 
 msg = await fs.readFile(upcomingFile, 'utf8');
 
-const pathToReleases = path.resolve(cwd, 'releases');
 await $`chmod -R 777 .changeset`; // update permissions for execution
-const chmod = `chmod -R 777 ${pathToReleases}`;
-await $(chmod); // update permissions for releases
 
 // create empty changeset file
 await $`pnpm changeset --empty`;
