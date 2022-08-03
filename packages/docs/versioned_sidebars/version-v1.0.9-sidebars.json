@@ -1,0 +1,55 @@
+{
+  "tutorial": [
+    {
+      "type": "category",
+      "label": "Tutorial",
+      "items": [
+        "intro",
+        {
+          "type": "category",
+          "label": "button",
+          "items": [
+            {
+              "type": "doc",
+              "id": "tutorial/button"
+            },
+            {
+              "type": "doc",
+              "id": "tutorial/button/installation"
+            },
+            {
+              "type": "doc",
+              "id": "tutorial/button/events"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "api": [
+    {
+      "type": "category",
+      "label": "API reference",
+      "items": [
+        {
+          "type": "doc",
+          "id": "api/button"
+        },
+        {
+          "type": "category",
+          "label": "date-picker",
+          "items": [
+            {
+              "type": "doc",
+              "id": "api/date-picker/day"
+            },
+            {
+              "type": "doc",
+              "id": "api/date-picker/month"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

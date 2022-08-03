@@ -62,7 +62,4 @@ jobs:
           pnpm zx scripts/publish.mjs
       # publish new version with docusaurus
       - run: |
-          cd packages/docs &&
-          GIT_TAG = $(git describe --abbrev=0) &&
-          pnpm docusaurus docs:version "${GIT_TAG}" &&
-          pnpm deploy
+          pnpm zx scripts/docs.mjs
