@@ -33,7 +33,8 @@ msg = await fs.readFile(upcomingFile, 'utf8');
 
 const pathToReleases = path.resolve(cwd, 'releases');
 await $`chmod -R 777 .changeset`; // update permissions for execution
-await $('chmod -R 777 ' + pathToReleases); // update permissions for releases
+const chmod = `chmod -R 777 ${pathToReleases}`;
+await $(chmod); // update permissions for releases
 
 // create empty changeset file
 await $`pnpm changeset --empty`;
