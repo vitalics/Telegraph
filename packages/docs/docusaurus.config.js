@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Telegraph',
   tagline: 'Dinosaurs are cool',
-  url: 'https://telegraph.com',
+  url: 'https://vitalics/Telegraph',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
