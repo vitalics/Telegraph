@@ -1,6 +1,6 @@
 {
   "name": "@tlgr/component",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "telegram component builder",
   "main": "lib/index.js",
   "scripts": {

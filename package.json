@@ -1,6 +1,6 @@
 {
   "name": "telegraph",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "monorepo with useful components for telegram",
   "private": true,
   "scripts": {
