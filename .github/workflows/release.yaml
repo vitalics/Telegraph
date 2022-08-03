@@ -55,8 +55,11 @@ jobs:
             Full changelog: {range}
             made with ❤ from Vitali Haradkou
       # publish to npm each package in separate npm.js
-      - run: |
-          INPUT_TOKEN=${{secrets.NPM_TOKEN}} pnpm zx scripts/publish.mjs
+      - name: Configure and publish to npm
+        run: |
+          echo '//registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}}' > .npmrc
+          cat .npmrc
+          pnpm zx scripts/publish.mjs
       # publish new version with docusaurus
       - run: |
           cd packages/docs &&
