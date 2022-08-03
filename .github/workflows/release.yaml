@@ -56,7 +56,7 @@ jobs:
             made with ❤ from Vitali Haradkou
       # publish to npm each package in separate npm.js
       - run: |
-          INPUT_TOKEN=${{secrets.NPM_TOKEN}} pnpm zx scripts/publish.js
+          INPUT_TOKEN=${{secrets.NPM_TOKEN}} pnpm zx scripts/publish.mjs
       # publish new version with docusaurus
       - run: |
           cd packages/docs &&
