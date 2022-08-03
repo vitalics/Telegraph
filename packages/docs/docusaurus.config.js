@@ -8,12 +8,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Telegraph',
   tagline: 'Dinosaurs are cool',
-  url: 'https://vitalics/Telegraph',
-  baseUrl: '/',
+  url: 'https://vitalics/',
+  baseUrl: '/Telegraph/',
   onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  trailingSlash: false,
+  trailingSlash: true,
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
