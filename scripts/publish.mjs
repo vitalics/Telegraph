@@ -1,5 +1,3 @@
-import {$} from 'zx';
+import { $ } from 'zx';
 
-await $`npm pack`;
-
-await $`npm publish --access restricted -ws`
+await $`npm publish --access restricted -ws`;
