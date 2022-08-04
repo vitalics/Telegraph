@@ -51,6 +51,7 @@ importers:
     specifiers:
       '@docusaurus/core': 2.0.1
       '@docusaurus/module-type-aliases': 2.0.1
+      '@docusaurus/plugin-google-gtag': 2.0.1
       '@docusaurus/preset-classic': 2.0.1
       '@docusaurus/types': 2.0.1
       '@mdx-js/react': ^1.6.22
@@ -61,6 +62,7 @@ importers:
       react-player: 2.10.1
     dependencies:
       '@docusaurus/core': 2.0.1_e7njuyukwke3dfkpruzdf3gfhy
+      '@docusaurus/plugin-google-gtag': 2.0.1_sfoxds7t5ydpegc3knd667wn6m
       '@docusaurus/preset-classic': 2.0.1_sfoxds7t5ydpegc3knd667wn6m
       '@mdx-js/react': 1.6.22_react@17.0.2
       clsx: 1.2.1

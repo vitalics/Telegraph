@@ -47,6 +47,10 @@ const config = {
           routeBasePath: '/',
           include: ['api/**/*.{js,jsx,ts,tsx,md,mdx}'],
         },
+        gtag: {
+          trackingID: 'G-226F0LR9KE',
+          anonymizeIP: true,
+        },
         googleAnalytics: {
           trackingID: 'G-7WHREPDX8L',
           anonymizeIP: true,
