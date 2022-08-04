@@ -48,7 +48,7 @@ const config = {
           include: ['api/**/*.{js,jsx,ts,tsx,md,mdx}'],
         },
         gtag: {
-          trackingID: 'G-226F0LR9KE',
+          trackingID: 'G-L9634HVZZQ',
           anonymizeIP: true,
         },
         googleAnalytics: {
