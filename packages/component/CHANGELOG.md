@@ -1,5 +1,11 @@
 # @tlgr/component
 
+## 1.0.15
+
+### Patch Changes
+
+-
+
 ## 1.0.14
 
 ### Patch Changes

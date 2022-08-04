@@ -1,6 +1,6 @@
 {
   "name": "@tlgr/date-picker",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "date and month picker components",
   "main": "lib/index.js",
   "scripts": {
