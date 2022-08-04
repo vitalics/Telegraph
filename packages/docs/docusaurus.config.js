@@ -52,7 +52,7 @@ const config = {
           anonymizeIP: true,
         },
         googleAnalytics: {
-          trackingID: 'G-7WHREPDX8L',
+          trackingID: 'G-L9634HVZZQ',
           anonymizeIP: true,
         },
         blog: {
