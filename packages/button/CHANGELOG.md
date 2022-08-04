@@ -1,5 +1,13 @@
 # @tlgr/button
 
+## 1.0.14
+
+### Patch Changes
+
+-
+- Updated dependencies
+  - @tlgr/component@1.0.14
+
 ## 1.0.13
 
 ### Patch Changes
