@@ -48,6 +48,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-template: "- {title} ← {hash}"
+          tag: v1.0.15
           template: |
             ### Changelog
             {commits}
