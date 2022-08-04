@@ -3,12 +3,12 @@ import { EventEmitter } from 'events';
 import { Telegraf } from 'telegraf';
 
 import { Event } from './event';
-import { ToObject, InferObject, RestForArrayType } from './types';
+import { ToObject, InferObject, RestForArrayType, Payload } from './types';
 
 /**
  * Common component builder.
  * 
- * This component have not `render()` function. Use `other components`
+ * **NOTE**: This component have not `render()` function. Use `InlineComponent` instead.
  *
  * @export
  * @abstract
@@ -17,6 +17,11 @@ import { ToObject, InferObject, RestForArrayType } from './types';
  * @template EventsCollection do not override. This is helper.
  */
 export default abstract class Component<Events extends Event[] = [], EventsCollection = ToObject<Events>> {
+  /** current component payload */
+  get payload(): Payload {
+    return this._payload;
+  }
+  protected _payload: Payload;
   protected readonly emitter = new EventEmitter();
   constructor(protected readonly bot: Telegraf) { }
   on<Name extends string | keyof EventsCollection = keyof EventsCollection>(event: Name, listener: (...payload: RestForArrayType<InferObject<EventsCollection, Name>>) => void): EventEmitter {

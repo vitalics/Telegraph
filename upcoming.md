@@ -1,1 +1,20 @@
+[infra/core]
 
+- add in release script `@tlgr/docs` package.
+
+[@tlgr/component]
+
+- update event generics API.
+- moved `payload` property from `InlineComponent` to `Component` class.
+
+[@tlgr/button]
+
+- update event usage
+
+[@tlgr/date-picker]
+
+- update event usage.
+
+[@tlgr/docs]
+
+- add docs about `component`, `date-picker` and `button` components.

@@ -1,0 +1,165 @@
+# Day Picker
+
+Provides api for a day picker with simple API.
+
+Day Picker API is similar as for Node.js [EventEmitter](https://nodejs.org/dist/latest-v16.x/docs/api/events.html#class-eventemitter) class, but provides only `on`, `once`, `emit` functions.
+
+```jsx
+import { DayPicker } from "@tlgr/date-picker";
+const dayPicker = new DayPicker(options);
+```
+
+## extends
+
+- [Component](../component/inline)
+
+## `constructor(bot, [options])`
+
+<small> added in 1.0.0 </small>
+
+- `bot` - <[Object][object]>. [Telegraf](https://telegraf.js.org/classes/Telegraf.html) instance.
+- `options?` - <[Object][object]>
+  - `mode` - <[`'edit' | 'new' | undefined`][string]>. Reply mode. Default is `edit`.
+  - `date` - <[Date][date]>. Started date. Default is `Date.now()`.
+  - `showPast` - <[boolean][boolean]>. Show past dates. If `false` - will render dates before Today as buttons with empty string. Default is `false`
+  - `locale` - <[string][string]>. date locale. Default is `en-US`.
+  - `controls`- <[Object][object]>. Controls options.
+    - `prev` - <[Object][object]>. Previous control options.
+      - `symbol` - <[string][string]>. Render symol. Default is `' '`.
+      - `alert` - <[Object][object]>. Alert options.
+        - `text` - <[string][string]>. Alert text. Default is `''`.
+        - `mode` - <[string][string]>. Alert mode. Possible values: `text` or `modal`. Default is `text`
+        - `show` - <[boolean][boolean]>. Show modal or not. Default is `false`.
+    - `next` - <[Object][object]>. Previous control options.
+      - `symbol` - <[string][string]>. Render symol. Default is `' '`.
+      - `alert` - <[Object][object]>. Alert options.
+        - `text` - <[string][string]>. Alert text. Default is `''`.
+        - `mode` - <[string][string]>. Alert mode. Possible values: `text` or `modal`. Default is `text`
+        - `show` - <[boolean][boolean]>. Show modal or not. Default is `false`.
+    - `empty` - <[Object][object]>. Previous control options.
+      - `symbol` - <[string][string]>. Render symol. Default is `' '`.
+      - `alert` - <[Object][object]>. Alert options.
+        - `text` - <[string][string]>. Alert text. Default is `''`.
+        - `mode` - <[string][string]>. Alert mode. Possible values: `text` or `modal`. Default is `text`
+        - `show` - <[boolean][boolean]>. Show modal or not. Default is `false`.
+
+## methods
+
+### `render()`
+
+<small> added in 1.0.0 </small>
+
+Returns Day picker grid.
+
+## properties
+
+### `date`
+
+<small>added in 1.0.0</small>
+
+#### modifiers
+
+- readonly
+- getter
+
+#### description
+
+returns current [Date][date] instance.
+
+## Events
+
+Events are not exported, but you can subscribe to events by it's name
+
+### Click
+
+<small>added in 1.0.0</small>
+
+#### name
+
+`click`
+
+#### payload
+
+- `ctx` - <[Object][object]>. Telegraf update [Context](https://telegraf.js.org/classes/Context.html#addStickerToSet).
+- `date` - <[Date][date]> - choosen date.
+
+### Next
+
+<small>added in 1.0.0</small>
+
+Fires when `next` month is clicked
+
+#### name
+
+`next`
+
+#### payload
+
+- `ctx` - <[Object][object]>. Telegraf update [Context](https://telegraf.js.org/classes/Context.html#addStickerToSet).
+- `date` - <[Date][date]> - new date.
+
+### Previous
+
+<small>added in 1.0.0</small>
+
+Fires when `previous` month is clicked
+
+#### name
+
+`prev`
+
+#### payload
+
+- `ctx` - <[Object][object]>. Telegraf update [Context](https://telegraf.js.org/classes/Context.html#addStickerToSet).
+- `date` - <[Date][date]> - new date.
+
+### Day
+
+<small>added in 1.0.0</small>
+
+Fires when subscribed on `day` event.
+
+#### name
+
+`day`
+
+#### payload
+
+- `ctx` - <[Object][object]>. Telegraf update [Context](https://telegraf.js.org/classes/Context.html#addStickerToSet).
+- `date` - <[number][number]> - returns day of month.
+
+### Weekday
+
+<small>added in 1.0.0</small>
+
+#### name
+
+`weekday`
+
+#### payload
+
+- `ctx` - <[Object][object]>. Telegraf update [Context](https://telegraf.js.org/classes/Context.html#addStickerToSet).
+- `weekday` - <[string][string]> - returns weekday based on your locale.
+
+### MonthYear
+
+<small>added in 1.0.0</small>
+
+Fires when Click on `MM/YYYY` button at the header of controls.
+
+#### name
+
+`monthyear`
+
+#### payload
+
+- `ctx` - <[Object][object]>. Telegraf update [Context](https://telegraf.js.org/classes/Context.html#addStickerToSet).
+- `monthYear` - <[string][string]> - returns `MM/YYYY` pattern.
+
+[object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+[date]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+[function]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions
+[string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type
+[boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#boolean_type
+[number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#numeric_types
+[symbol]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#symbol_type

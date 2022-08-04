@@ -17,6 +17,7 @@ const template = (type, msg) => `
 "@tlgr/component": ${type}
 "@tlgr/button": ${type}
 "@tlgr/date-picker": ${type}
+"@tlgr/docs": ${type}
 ---
 ${msg}
 `;

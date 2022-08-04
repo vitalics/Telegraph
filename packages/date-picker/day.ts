@@ -1,5 +1,5 @@
 import { Button } from '@tlgr/button';
-import { InlineComponent, Event } from '@tlgr/component';
+import { Inline, Event } from '@tlgr/component';
 
 import dayjs, { Dayjs } from 'dayjs';
 import { Context, Telegraf } from 'telegraf';
@@ -9,48 +9,48 @@ import { DayPickerButton } from './button';
 import { Helper } from './helper';
 import type { Options } from './types';
 
-class Navigation extends Event<[ctx: Context<Update>, date: Dayjs], 'next' | 'prev'>{ }
+class Navigation extends Event<'next' | 'prev', [ctx: Context<Update>, date: Dayjs]>{ }
 
-class Click extends Event<[ctx: Context<Update>, date: Dayjs], 'click'>{
-  constructor(...payload: [ctx: Context<Update>, date: Dayjs]) {
+class Click extends Event<'click', [ctx: Context<Update>, date: Date]>{
+  constructor(...payload: [ctx: Context<Update>, date: Date]) {
     super('click', ...payload);
   }
 }
-class Weekday extends Event<[ctx: Context<Update>, weekday: string], 'weekday'>{
+class Weekday extends Event<'weekday', [ctx: Context<Update>, weekday: string]>{
   constructor(...payload: [ctx: Context<Update>, weekday: string]) {
     super('weekday', ...payload);
   }
 }
-class Day extends Event<[ctx: Context<Update>, date: number], 'day'>{
+class Day extends Event<'day', [ctx: Context<Update>, date: number]>{
   constructor(...payload: [ctx: Context<Update>, date: number]) {
     super('day', ...payload);
   }
 }
 
-class MonthYear extends Event<[ctx: Context<Update>, monthYear: `${number}${number}/${number}${number}${number}${number}`], 'monthyear'>{
+class MonthYear extends Event<'monthyear', [ctx: Context<Update>, monthYear: `${number}${number}/${number}${number}${number}${number}`]>{
   constructor(...payload: [ctx: Context<Update>, monthYear: `${number}${number}/${number}${number}${number}${number}`]) {
     super('monthyear', ...payload);
   }
 }
 
-export default class DayPicker extends InlineComponent<[Day, Weekday, MonthYear, Navigation, Click]> {
-  #day = this.options?.date ? dayjs(this.options?.date) : dayjs();
-  #nextButton = new Button(this.bot, this.options?.controls?.next?.symbol ?? '>', { prefix: `@tlgr/date-picker/day/next/${this.date.month()}`, disableUUID: true, alert: this.options?.controls?.next?.alert });
-  #prevButton = new Button(this.bot, this.options?.controls?.prev?.symbol ?? '<', { prefix: `@tlgr/date-picker/day/prev/${this.date.month()}`, disableUUID: true, alert: this.options?.controls?.prev?.alert });
-  #currentMMYYYYButton = new Button(this.bot, this.date.format('MM/YYYY'));
+export default class DayPicker extends Inline<[Day, Weekday, MonthYear, Navigation, Click]> {
+  #date = this.options?.date ? dayjs(this.options?.date) : dayjs();
+  #nextButton = new Button(this.bot, this.options?.controls?.next?.symbol ?? '>', { prefix: `@tlgr/date-picker/day/next/${this.#date.month()}`, disableUUID: true, alert: this.options?.controls?.next?.alert });
+  #prevButton = new Button(this.bot, this.options?.controls?.prev?.symbol ?? '<', { prefix: `@tlgr/date-picker/day/prev/${this.#date.month()}`, disableUUID: true, alert: this.options?.controls?.prev?.alert });
+  #currentMMYYYYButton = new Button(this.bot, this.#date.format('MM/YYYY'));
   #weekdays: Button[];
-  #helper = Helper({ locale: this.options?.locale, disableBeforeToday: !this.options?.showPast, date: this.date }).Weekdays({ chunks: true }).render();
+  #helper = Helper({ locale: this.options?.locale, disableBeforeToday: !this.options?.showPast, date: this.#date }).Weekdays({ chunks: true }).render();
   #buttons: Button[][];
   readonly mode = this.options?.mode ?? 'edit';
   get date() {
-    return this.#day;
+    return this.#date.toDate();
   }
   constructor(protected readonly bot: Telegraf, readonly options?: Options) {
     super(bot);
     const [weekdays, days] = this.#helper;
     this.#buttons = (days as (string | null)[][]).map(day =>
       day.map(d => {
-        const button = new DayPickerButton(this.bot, d ?? this.options?.controls?.empty?.symbol ?? ' ', this.date)
+        const button = new DayPickerButton(this.bot, d ?? this.options?.controls?.empty?.symbol ?? ' ', this.#date)
         return button;
       })
     );
@@ -65,7 +65,7 @@ export default class DayPicker extends InlineComponent<[Day, Weekday, MonthYear,
     const dayRegex = new RegExp('@tlgr/date-picker/day/current');
     const weekdayRegex = new RegExp('@tlgr/date-picker/weekday');
     this.#currentMMYYYYButton.on('click', (ctx, button) => {
-      this.emit(new Event('monthyear', ctx, this.date.format('MM/YYYY')));
+      this.emit(new Event('monthyear', ctx, this.#date.format('MM/YYYY')));
     });
 
     // weekday click
@@ -82,13 +82,13 @@ export default class DayPicker extends InlineComponent<[Day, Weekday, MonthYear,
       const [dd, mm, yyyy] = ddmmyyyy.split('/').map(Number);
       const date = dayjs(Date.UTC(yyyy, mm - 1, dd, 1, 1));
       this.emit(new Day(ctx, dd));
-      this.emit(new Click(ctx, date));
+      this.emit(new Click(ctx, this.date));
       next();
     });
     // previous click
     this.#prevButton.on('click', (ctx, button) => {
       const prevMonth = button.payload as number;
-      const newDate = this.date.set('month', prevMonth).set('date', 1);
+      const newDate = this.#date.set('month', prevMonth).set('date', 1);
       // unsubscribe previous events
       this.cleanup();
       const newPicker = new DayPicker(this.bot, { ...this.options, date: newDate })
@@ -116,7 +116,7 @@ export default class DayPicker extends InlineComponent<[Day, Weekday, MonthYear,
     // next click
     this.#nextButton.on('click', async (ctx, button) => {
       const nextMonth = button.payload as number;
-      const newDate = this.date.set('month', nextMonth).set('date', 1);
+      const newDate = this.#date.set('month', nextMonth).set('date', 1);
       // unsubscribe previous events
       this.cleanup();
 
@@ -145,9 +145,9 @@ export default class DayPicker extends InlineComponent<[Day, Weekday, MonthYear,
   /** Telegram keyboard buttons */
   render(): InlineKeyboardButton.CallbackButton[][] {
     const header = [
-      this.#prevButton.render(String(this.date.month() - 1)),
-      this.#currentMMYYYYButton.render(String(this.date.format('MM/YYYY'))),
-      this.#nextButton.render(String(this.date.month() + 1)),
+      this.#prevButton.render(String(this.#date.month() - 1)),
+      this.#currentMMYYYYButton.render(String(this.#date.format('MM/YYYY'))),
+      this.#nextButton.render(String(this.#date.month() + 1)),
     ];
 
     return (

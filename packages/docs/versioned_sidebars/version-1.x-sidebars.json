@@ -11,7 +11,7 @@
           "items": [
             {
               "type": "doc",
-              "id": "tutorial/button"
+              "id": "tutorial/button/index"
             },
             {
               "type": "doc",
@@ -32,12 +32,43 @@
       "label": "API reference",
       "items": [
         {
-          "type": "doc",
-          "id": "api/button"
+          "type": "category",
+          "label": "📦 @tlgr/component",
+          "items": [
+            {
+              "type": "doc",
+              "id": "api/component/base",
+              "label": "Component"
+            },
+            {
+              "type": "doc",
+              "id": "api/component/event",
+              "label": "Event"
+            },
+            {
+              "type": "doc",
+              "id": "api/component/inline",
+              "label": "InlineComponent"
+            }
+          ]
         },
         {
           "type": "category",
-          "label": "date-picker",
+          "label": "📦 @tlgr/button",
+          "items": [
+            {
+              "type": "doc",
+              "id": "api/button/inline"
+            },
+            {
+              "type": "doc",
+              "id": "api/button/events"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "📦 @tlgr/date-picker",
           "items": [
             {
               "type": "doc",

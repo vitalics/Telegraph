@@ -36,22 +36,56 @@ const sidebars = {
   ],
   api: [
     {
-      type: 'category',
-      label: 'API reference',
-      items: [
-        { type: 'doc', id: 'api/button' },
+      "type": "category",
+      "label": "API reference",
+      "items": [
         {
-          type: 'category', label: 'date-picker',
+          "type": "category",
+          "label": "📦 @tlgr/component",
           items: [
-            { type: 'doc', id: 'api/date-picker/day' },
-            { type: 'doc', id: 'api/date-picker/month' },
+            {
+              type: "doc",
+              id: "api/component/base",
+              label: 'Component'
+            },
+            {
+              type: "doc",
+              id: "api/component/class",
+              label: 'InlineComponent'
+            }
+          ],
+        },
+        {
+          "type": "category",
+          "label": "📦 @tlgr/button",
+          "items": [
+            {
+              "type": "doc",
+              "id": "api/button/class"
+            },
+            {
+              "type": "doc",
+              "id": "api/button/events"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "📦 @tlgr/date-picker",
+          "items": [
+            {
+              "type": "doc",
+              "id": "api/date-picker/day"
+            },
+            {
+              "type": "doc",
+              "id": "api/date-picker/month"
+            }
           ]
         }
-        // { type: 'doc', id: 'api/date-picker' },
-        // { type: 'doc', id: 'api/date-picker' },
       ]
-    },
-  ],
+    }
+  ]
 };
 
 module.exports = sidebars;

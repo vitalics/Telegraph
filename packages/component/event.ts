@@ -8,7 +8,7 @@
  * @template Payload tuple. E.g. `[string, number, boolean, object]` or named tuple `[text: string, etc.]`
  * @template Name Event name
  */
-export class Event<Payload extends any[] = unknown[], Name extends string = string> {
+export class Event<Name extends string = string, Payload extends any[] = unknown[]> {
   readonly payload: Payload;
   constructor(readonly name: Name, ...arr: Payload) {
     this.payload = arr;

@@ -3,15 +3,11 @@ import { randomUUID } from 'crypto';
 import { Context, Markup, Telegraf } from 'telegraf';
 import { InlineKeyboardButton, Update } from 'telegraf/typings/core/types/typegram';
 import { Options } from './types';
-import { InlineComponent, Event } from '@tlgr/component';
+import { Inline, Event } from '@tlgr/component';
 
-class Click extends Event<[ctx: Context<Update>, button: Button], 'click'>{
-  constructor(readonly payload: [ctx: Context<Update>, button: Button]) {
-    super('click', ...payload);
-  }
-}
+type Click = Event<'click', [ctx: Context<Update>, button: Button]>;
 
-export default class Button extends InlineComponent<[Click]> {
+export default class Button extends Inline<[Click]> {
   readonly uuid: string | undefined;
   /**
    * prefix base name
@@ -22,11 +18,6 @@ export default class Button extends InlineComponent<[Click]> {
    * @memberof Button
    */
   #prefix: string = '@tlgr/button';
-  #payload: PropertyKey | boolean = '';
-
-  get payload() {
-    return this.#payload;
-  }
   /**
    * Generated button unique name
    * @example
@@ -34,6 +25,12 @@ export default class Button extends InlineComponent<[Click]> {
    * @memberof Button
    */
   #name: string;
+  /**
+   * Component full name
+   *
+   * @readonly
+   * @memberof Button
+   */
   get name() {
     return this.#name
   }
@@ -78,7 +75,7 @@ export default class Button extends InlineComponent<[Click]> {
   private subscribe() {
     const regex = new RegExp(this.name);
     this.bot.action(regex, async (ctx, next) => {
-      this.emit(new Click([ctx, this]));
+      this.emit(new Event('click', ctx, this));
       if (this.options?.alert) {
         await ctx.answerCbQuery(this.options.alert.text, { show_alert: this.options.alert.mode === 'modal' })
       }
@@ -91,10 +88,10 @@ export default class Button extends InlineComponent<[Click]> {
    * @param payload callable unique payload. Payload devided via `-` symbol
    * @returns Inline keyboard
    */
-  render(payload: PropertyKey | boolean = this.#payload): InlineKeyboardButton.CallbackButton {
+  render(payload = this._payload): InlineKeyboardButton.CallbackButton {
     const divider = this.options?.payloadDivider ?? '-';
     const resolved = payload ? `${this.name}${divider}${payload.toString()}` : this.name
-    this.#payload = payload;
+    this._payload = payload;
     return Markup.button.callback(this.text, resolved);
   }
 }

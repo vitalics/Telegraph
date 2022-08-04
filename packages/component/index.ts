@@ -1,5 +1,7 @@
-import InlineComponent from './inline';
+import Inline from './inline';
+import Component from './component';
 import { Event } from './event';
+import { Payload } from './types';
 
-export { InlineComponent, Event };
-export default { InlineComponent, Event };
+export { Inline, Component, Event, type Payload };
+export default { Inline, Event, Component };

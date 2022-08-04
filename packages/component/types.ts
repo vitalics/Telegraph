@@ -4,8 +4,8 @@ import { Event } from './event';
 type IndexKeys<A extends readonly unknown[]> = Exclude<keyof A, keyof []>
 type Name<O> = O extends { name: infer N } ? N extends string ? N : never : never;
 type GetPayload<O> =
-  O extends Event<infer P>
-  ? P
+  O extends Event<infer _, infer Payload>
+  ? Payload
   : never // object has no `type` property
 
 export type ToObject<P extends readonly Event[]> = {
@@ -18,3 +18,6 @@ export type InferObject<O extends Record<string, any>, Key extends string | keyo
 // type GetEventByName<EventName extends string, Events extends readonly unknown[]> = Events extends [Event<infer payload, infer Name>] ? Name extends EventName?
 
 export type RestForArrayType<T> = T extends any[] ? T : [T];
+
+/** Payload type */
+export type Payload = PropertyKey | boolean | undefined;
