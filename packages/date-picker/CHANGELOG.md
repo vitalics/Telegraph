@@ -1,10 +1,20 @@
 # @tlgr/date-picker
 
+## 1.0.17
+
+### Patch Changes
+
+-
+- Updated dependencies
+  - @tlgr/component@1.0.17
+  - @tlgr/button@1.0.17
+
 ## 1.0.16
 
 ### Patch Changes
 
 -
+
 - Updated dependencies
   - @tlgr/component@1.0.16
   - @tlgr/button@1.0.16
