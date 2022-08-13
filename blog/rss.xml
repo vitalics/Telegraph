@@ -4,10 +4,23 @@
         <title>Telegraph Blog</title>
         <link>https://vitalics/Telegraph/blog</link>
         <description>Telegraph Blog</description>
-        <lastBuildDate>Wed, 03 Aug 2022 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 14 Aug 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[1.1.0 is here!]]></title>
+            <link>https://vitalics/Telegraph/blog/release 1.1.0</link>
+            <guid>release 1.1.0</guid>
+            <pubDate>Sun, 14 Aug 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[The new telegraph components are landed and available on npm.js site.]]></description>
+            <content:encoded><![CDATA[<p>The new telegraph components are landed and available on <a href="https://npmjs.com" target="_blank" rel="noopener noreferrer"><code>npm.js</code></a> site.</p><h2 class="anchor anchorWithStickyNavbar_Htkr" id="new-components">New Components:<a class="hash-link" href="#new-components" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_Htkr" id="carousel"><a href="https://github.com/vitalics/telegraph/packages/carousel/" target="_blank" rel="noopener noreferrer">Carousel</a><a class="hash-link" href="#carousel" title="Direct link to heading">​</a></h3><p>render item and navigation (<code>&lt;</code> and <code>&gt;</code>) symbols.</p><p>Can render <code>text</code> , <code>video</code>, <code>audio</code>, <code>animation</code> and <code>photo</code> messages.</p><p>Installation:</p><p><code>npm i @tlgr/carousel</code></p><h3 class="anchor anchorWithStickyNavbar_Htkr" id="poll"><a href="https://github.com/vitalics/telegraph/packages/poll/" target="_blank" rel="noopener noreferrer">Poll</a><a class="hash-link" href="#poll" title="Direct link to heading">​</a></h3><p>Poll ask user to answer a question.</p><p>Installation:</p><p><code>npm i @tlgr/poll</code></p><h3 class="anchor anchorWithStickyNavbar_Htkr" id="quiz"><a href="https://github.com/vitalics/telegraph/packages/poll/" target="_blank" rel="noopener noreferrer">Quiz</a><a class="hash-link" href="#quiz" title="Direct link to heading">​</a></h3><p>Quiz is similar to poll but have <code>correct_option_id</code> which marks correct answer id.</p><p>Installation:</p><p><code>npm i @tlgr/quiz</code></p><h2 class="anchor anchorWithStickyNavbar_Htkr" id="changes">Changes<a class="hash-link" href="#changes" title="Direct link to heading">​</a></h2><h3 class="anchor anchorWithStickyNavbar_Htkr" id="button"><a href="https://github.com/vitalics/telegraph/packages/button" target="_blank" rel="noopener noreferrer">Button</a><a class="hash-link" href="#button" title="Direct link to heading">​</a></h3><p>Introduce button keyboard component.</p><p>New Keyboard buttons. See <a href="https://vitalics.github.io/Telegraph/docs/tutorial/button/types" target="_blank" rel="noopener noreferrer">types</a>:</p><ul><li>location</li><li>phone</li><li>poll</li><li>quiz</li></ul><h3 class="anchor anchorWithStickyNavbar_Htkr" id="component"><a href="https://github.com/vitalics/telegraph/packages/component" target="_blank" rel="noopener noreferrer">Component</a><a class="hash-link" href="#component" title="Direct link to heading">​</a></h3><p>New Component: Keyboard</p><p>Full Changelog available at link: <a href="https://github.com/vitalics/Telegraph/blob/main/releases/v1.1.0.md" target="_blank" rel="noopener noreferrer">https://github.com/vitalics/Telegraph/blob/main/releases/v1.1.0.md</a></p><p>Made with ❤️ from <a href="https://github.com/vitalics" target="_blank" rel="noopener noreferrer">vitalics</a></p>]]></content:encoded>
+            <category>release</category>
+            <category>telegraph</category>
+            <category>carousel</category>
+            <category>poll</category>
+            <category>quiz</category>
+        </item>
         <item>
             <title><![CDATA[1.0.0 is here!]]></title>
             <link>https://vitalics/Telegraph/blog/release 1.0.0</link>

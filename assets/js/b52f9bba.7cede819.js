@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_tlgr_docs=self.webpackChunk_tlgr_docs||[]).push([[9911],{9484:e=>{e.exports=JSON.parse('{"permalink":"/Telegraph/blog/tags/carousel","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

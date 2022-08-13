@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_tlgr_docs=self.webpackChunk_tlgr_docs||[]).push([[8213],{1719:e=>{e.exports=JSON.parse('{"label":"carousel","permalink":"/Telegraph/blog/tags/carousel","allTagsPath":"/Telegraph/blog/tags","count":1}')}}]);
