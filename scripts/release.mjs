@@ -14,10 +14,13 @@ function assertType(type) {
 
 const template = (type, msg) => `
 ---
-"@tlgr/component": ${type}
 "@tlgr/button": ${type}
+"@tlgr/carousel": ${type}
+"@tlgr/component": ${type}
 "@tlgr/date-picker": ${type}
 "@tlgr/docs": ${type}
+"@tlgr/poll": ${type}
+"@tlgr/quiz": ${type}
 ---
 ${msg}
 `;
