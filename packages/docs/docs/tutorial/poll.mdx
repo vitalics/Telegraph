@@ -1,0 +1,60 @@
+# Poll
+
+Component which send Poll to selected user.
+
+## Installation
+
+### PNPm
+
+`pnpm add @tlgr/poll`
+
+### yarn
+
+`yarn add @tlgr/poll`
+
+### npm
+
+`npm install @tlgr/poll`
+
+## Example
+
+```jsx title=example.ts
+import { Telegraf } from "telegraf";
+import { Poll } from "@tlgr/poll";
+
+const TOKEN = "<API TOKEN>";
+const bot = new Telegraf(TOKEN);
+
+const poll = new Poll(bot, {
+  name: "QWE Poll",
+  options: ["option 1", "option 2"],
+  open_period: 600, // 10 minutes
+  is_anonymous: true,
+});
+
+poll.on("sent", (ctx, instance) => {
+  ctx.reply(`Please reply the poll ${instance.options.name}!`);
+});
+
+poll.on("answer_user", (poll, instance) => {
+  // fires event when is_anonymous:false
+  console.log("user answer context:", poll);
+  console.log(`Got Update votes Count: ${poll.user.first_name}`);
+});
+
+poll.on("answer_anonymous", (poll, instance) => {
+  // fires event when is_anonymous:true
+  console.log(`Got Update votes Count: ${poll.total_voter_count}`);
+});
+
+bot.start(async (ctx) => {
+  await poll.send(ctx);
+  console.log("started?", poll.opened);
+});
+
+bot.launch();
+```
+
+## Demo
+
+<img alt="poll demo" src="/Telegraph/img/poll.png" width="500" />

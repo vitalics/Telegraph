@@ -12,30 +12,30 @@ const bot = new Telegraf(TOKEN);
 
 // month picker
 
-const monthPicker = new MonthPicker(bot);
+// const monthPicker = new MonthPicker(bot);
 
-monthPicker.on('click', (ctx, date) => {
-  console.log('click to date', date);
-  ctx.reply('you choose' + (date as Dayjs).format('MM/YYYY'));
-});
+// monthPicker.on('click', (ctx, date) => {
+//   console.log('click to date', date);
+//   ctx.reply('you choose' + (date as Dayjs).format('MM/YYYY'));
+// });
 
-monthPicker.on('next', (ctx, date) => {
-  console.log('next year', date);
-  ctx.reply('next year' + (date as Dayjs).format('YYYY'));
-});
+// monthPicker.on('next', (ctx, date) => {
+//   console.log('next year', date);
+//   ctx.reply('next year' + (date as Dayjs).format('YYYY'));
+// });
 
-monthPicker.on('prev', (ctx, date) => {
-  console.log('prev year', date);
-  ctx.reply('prev year' + (date as Dayjs).format('YYYY'));
-});
+// monthPicker.on('prev', (ctx, date) => {
+//   console.log('prev year', date);
+//   ctx.reply('prev year' + (date as Dayjs).format('YYYY'));
+// });
 
-bot.command('month', ctx => {
-  ctx.reply('pick month', {
-    reply_markup: {
-      inline_keyboard: monthPicker.render()
-    }
-  })
-})
+// bot.command('month', ctx => {
+//   ctx.reply('pick month', {
+//     reply_markup: {
+//       inline_keyboard: monthPicker.render()
+//     }
+//   })
+// })
 
 // day picker example
 
@@ -49,7 +49,7 @@ const picker = new DayPicker(bot, {
 
 
 picker.on('click', (ctx, date) => {
-  ctx.reply('You selected ' + (date as Dayjs).format('DD/MM/YYYY'));
+  ctx.reply('You selected ' + date.toLocaleString());
 });
 
 picker.on('day', (ctx, date) => {
@@ -70,8 +70,9 @@ picker.on('prev', (ctx, date) => {
 bot.command('calendar', (ctx) => {
   ctx.reply('Pick Date', {
     reply_markup: {
-      inline_keyboard: picker.render(),
-    }
+      // inline_keyboard: picker.render(),
+      keyboard: picker.render(),
+    },
   });
 });
 

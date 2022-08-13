@@ -11,7 +11,7 @@ const dayPicker = new DayPicker(options);
 
 ## extends
 
-- [Component](./component)
+- [Component](../component/inline)
 
 ## `constructor(bot, [options])`
 
@@ -49,50 +49,11 @@ const dayPicker = new DayPicker(options);
 
 <small> added in 1.0.0 </small>
 
-Returns Telegram button grid controls.
-
-### `on(event, callback)`
-
-<small> added in 1.0.0 </small>
-
-- `event` - <[string][string]>. Event name.
-- `callback` - <[Function][function]>. Callback function
-
-  - `ctx` - <[Object][object]>. [Telegraf Context](https://telegraf.js.org/classes/Context.html#addStickerToSet).
-  - `button` - <[Object][object]>. [Button](/docs/api/button) instance.
-
-### `once(event, callback)`
-
-<small>added in 1.0.0</small>
-
-- `event` - <[string][string]>. Event name. Only can be `click` value. Other events will be ignored.
-- `callback` - <[Function][function]>. Callback function
-  - `ctx` - <[Object][object]>. [Telegraf Context](https://telegraf.js.org/classes/Context.html#addStickerToSet).
-  - `button` - <[Object][object]>. [Button](/docs/api/button) instance.
-
-### `emit(event, callback)`
-
-<small>added in 1.0.0</small>
-
-- `event` - <[string][string]>. Event name. Only can be `click` value. Other events will be ignored.
-- `ctx` - <[Object][object]>. [Telegraf Context](https://telegraf.js.org/classes/Context.html#addStickerToSet).
-- `button` - <[Object][object]>. [Button](/docs/api/button) instance.
+Returns Day picker grid.
 
 ## properties
 
-### `uuid`
-
-<small>added in 1.0.0</small>
-
-#### modifiers
-
-- readonly
-
-#### description
-
-Random generated hash. Returns `undefined` in case if `options.disableUUID=true`
-
-### `name`
+### `date`
 
 <small>added in 1.0.0</small>
 
@@ -103,7 +64,7 @@ Random generated hash. Returns `undefined` in case if `options.disableUUID=true`
 
 #### description
 
-Resolved button name. This property consist of `options.prefix` and `options.disableUUID`.
+returns current [Date][date] instance.
 
 ## Events
 
@@ -135,7 +96,7 @@ Fires when `next` month is clicked
 #### payload
 
 - `ctx` - <[Object][object]>. Telegraf update [Context](https://telegraf.js.org/classes/Context.html#addStickerToSet).
-- `date` - <[Date][date]> - new date.
+- `date` - <[Date][date]> - next date.
 
 ### Previous
 
@@ -150,7 +111,7 @@ Fires when `previous` month is clicked
 #### payload
 
 - `ctx` - <[Object][object]>. Telegraf update [Context](https://telegraf.js.org/classes/Context.html#addStickerToSet).
-- `date` - <[Date][date]> - new date.
+- `date` - <[Date][date]> - previous date.
 
 ### Day
 

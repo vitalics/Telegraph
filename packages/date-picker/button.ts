@@ -1,12 +1,12 @@
 import { Telegraf } from 'telegraf';
 
-import { Button } from '@tlgr/button';
+import { Inline } from '@tlgr/button';
 import dayjs, { Dayjs } from 'dayjs';
 import { InlineKeyboardButton } from 'telegraf/typings/core/types/typegram';
 
-export class DayPickerButton extends Button {
+export class DayPickerButton extends Inline {
   readonly date!: Dayjs;
-  constructor(protected readonly bot: Telegraf, readonly text: string, date: Dayjs) {
+  constructor(readonly bot: Telegraf, readonly text: string, date: Dayjs) {
     super(bot, text, {
       prefix: '@tlgr/date-picker/day/current',
       disableUUID: true,
@@ -30,8 +30,8 @@ export class DayPickerButton extends Button {
 }
 
 
-export class MonthPickerButton extends Button {
-  constructor(protected readonly bot: Telegraf, readonly text: string, readonly date: Dayjs) {
+export class MonthPickerButton extends Inline {
+  constructor(readonly bot: Telegraf, readonly text: string, readonly date: Dayjs) {
     super(bot, text, {
       prefix: '@tlgr/date-picker/month/current',
       disableUUID: true,

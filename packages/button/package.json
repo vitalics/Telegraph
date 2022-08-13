@@ -10,7 +10,11 @@
     ".": "./lib/index.js",
     "./package.json": "./package.json",
     "./inline": "./lib/inline.js",
-    "./cancel": "./lib/cancel.js",
+    "./keyboard": "./lib/keyboard.js",
+    "./location": "./lib/location.js",
+    "./phone": "./lib/phone.js",
+    "./poll": "./lib/poll.js",
+    "./quiz": "./lib/quiz.js",
     "./bin": null,
     "./types": "./lib/types.js"
   },
@@ -21,6 +25,10 @@
   ],
   "author": "Vitali Haradkou",
   "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/vitalics/Telegraph/issues"
+  },
+  "homepage": "https://github.com/vitalics/telegraph/button#readme",
   "dependencies": {
     "@tlgr/component": "workspace:^",
     "uuid": "8.3.2"

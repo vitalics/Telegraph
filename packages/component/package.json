@@ -2,7 +2,7 @@
   "name": "@tlgr/component",
   "version": "1.0.17",
   "description": "telegram component builder",
-  "main": "lib/index.js",
+  "main": "lю/ib/index.js",
   "scripts": {
     "build": "tsc"
   },
@@ -20,6 +20,10 @@
   ],
   "author": "Vitali Haradkou",
   "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/vitalics/Telegraph/issues"
+  },
+  "homepage": "https://github.com/vitalics/Telegraph/tree/main/packages/component#readme#readme",
   "peerDependencies": {
     "telegraf": "4.8.6"
   },

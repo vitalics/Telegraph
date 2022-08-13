@@ -1,4 +1,4 @@
-import { Button } from '@tlgr/button';
+import { Inline as InlineButton } from '@tlgr/button';
 import dayjs, { Dayjs } from 'dayjs';
 
 import { Context, Telegraf } from 'telegraf';
@@ -21,16 +21,16 @@ export default class MonthPicker extends Inline<[YearOrMonth, MainEvents]> {
   }
   readonly mode = this.options?.mode ?? 'edit';
 
-  readonly #nextButton = new Button(this.bot, this.options?.controls?.next?.symbol ?? '>', { prefix: `@tlgr/date-picker/month/next/${this.#date.month() + 1}`, disableUUID: true, alert: this.options?.controls?.next?.alert });
-  readonly #prevButton = new Button(this.bot, this.options?.controls?.prev?.symbol ?? '<', { prefix: `@tlgr/date-picker/month/prev/${this.#date.month() - 1}`, disableUUID: true, alert: this.options?.controls?.prev?.alert });
-  readonly #currentYYYYButton = new Button(this.bot, this.#date.format('YYYY'))
+  readonly #nextButton = new InlineButton(this.bot, this.options?.controls?.next?.symbol ?? '>', { prefix: `@tlgr/date-picker/month/next/${this.#date.month() + 1}`, disableUUID: true, alert: this.options?.controls?.next?.alert });
+  readonly #prevButton = new InlineButton(this.bot, this.options?.controls?.prev?.symbol ?? '<', { prefix: `@tlgr/date-picker/month/prev/${this.#date.month() - 1}`, disableUUID: true, alert: this.options?.controls?.prev?.alert });
+  readonly #currentYYYYButton = new InlineButton(this.bot, this.#date.format('YYYY'))
   readonly #helper = Helper({
     date: this.#date,
     disableBeforeToday: !this.options?.showPast,
     locale: this.options?.locale
   }).Month({ chunks: undefined }).render();
 
-  readonly #months: Button[][];
+  readonly #months: InlineButton[][];
   constructor(readonly bot: Telegraf, readonly options?: MonthOptions) {
     super(bot);
 

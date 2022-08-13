@@ -31,6 +31,16 @@ importers:
       '@tlgr/component': link:../component
       uuid: 8.3.2
 
+  packages/carousel:
+    specifiers:
+      '@tlgr/button': workspace:*
+      '@tlgr/component': workspace:*
+      telegraf: 4.8.6
+    dependencies:
+      '@tlgr/button': link:../button
+      '@tlgr/component': link:../component
+      telegraf: 4.8.6
+
   packages/component:
     specifiers:
       telegraf: 4.8.6
@@ -51,6 +61,7 @@ importers:
     specifiers:
       '@docusaurus/core': 2.0.1
       '@docusaurus/module-type-aliases': 2.0.1
+      '@docusaurus/plugin-content-docs': 2.0.1
       '@docusaurus/plugin-google-gtag': 2.0.1
       '@docusaurus/preset-classic': 2.0.1
       '@docusaurus/types': 2.0.1
@@ -62,6 +73,7 @@ importers:
       react-player: 2.10.1
     dependencies:
       '@docusaurus/core': 2.0.1_e7njuyukwke3dfkpruzdf3gfhy
+      '@docusaurus/plugin-content-docs': 2.0.1_sfoxds7t5ydpegc3knd667wn6m
       '@docusaurus/plugin-google-gtag': 2.0.1_sfoxds7t5ydpegc3knd667wn6m
       '@docusaurus/preset-classic': 2.0.1_sfoxds7t5ydpegc3knd667wn6m
       '@mdx-js/react': 1.6.22_react@17.0.2
@@ -73,6 +85,22 @@ importers:
     devDependencies:
       '@docusaurus/module-type-aliases': 2.0.1_sfoxds7t5ydpegc3knd667wn6m
       '@docusaurus/types': 2.0.1_sfoxds7t5ydpegc3knd667wn6m
+
+  packages/poll:
+    specifiers:
+      '@tlgr/component': workspace:*
+      telegraf: 4.8.6
+    dependencies:
+      '@tlgr/component': link:../component
+      telegraf: 4.8.6
+
+  packages/quiz:
+    specifiers:
+      '@tlgr/component': workspace:*
+      telegraf: 4.8.6
+    dependencies:
+      '@tlgr/component': link:../component
+      telegraf: 4.8.6
 
 packages:
 
@@ -649,7 +677,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.12.9
-      '@babel/helper-plugin-utils': 7.10.4
+      '@babel/helper-plugin-utils': 7.18.9
       '@babel/plugin-syntax-object-rest-spread': 7.8.3_@babel+core@7.12.9
       '@babel/plugin-transform-parameters': 7.18.8_@babel+core@7.12.9
     dev: false

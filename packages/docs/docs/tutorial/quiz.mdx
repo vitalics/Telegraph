@@ -1,0 +1,54 @@
+# Quiz
+
+Quiz component is a component which have a correct answer.
+
+## Installation
+
+### PNPm
+
+`pnpm add @tlgr/quiz`
+
+### yarn
+
+`yarn add @tlgr/quiz`
+
+### npm
+
+`npm install @tlgr/quiz`
+
+## Example
+
+```jsx title=example.ts
+import { Telegraf } from "telegraf";
+import { Quiz } from "@tlgr/quiz";
+
+const TOKEN = "<API TOKEN>";
+const bot = new Telegraf(TOKEN);
+
+const quiz = new Quiz(bot, {
+  name: "QWE Quiz",
+  options: ["answer 1", "answer 2"],
+  correct_option_id: 0, // required
+  open_period: 600,
+  is_anonymous: true,
+  explanation: "first is correct",
+});
+
+quiz.on("answer_user", (ctx, instance) => {
+  console.log(`User with name ${ctx.user.first_name} is answered`);
+});
+
+quiz.on("answer_anonymous", (ctx, instance) => {
+  console.log("anonymous is answered");
+});
+
+bot.start((ctx) => {
+  quiz.send(ctx);
+});
+
+bot.launch();
+```
+
+## Demo
+
+<img alt="pquizoll demo" src="/Telegraph/img/quiz.png" width="500" />

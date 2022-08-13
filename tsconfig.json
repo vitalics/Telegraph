@@ -2,5 +2,8 @@
   "extends": "@tsconfig/node16",
   "compilerOptions": {
     "declaration": true
-  }
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }

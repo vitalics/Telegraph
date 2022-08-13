@@ -1,0 +1,40 @@
+---
+sidebar_position: 2
+---
+
+# Introduction
+
+Date picker - component of telegram bot. Which works as date picker frontend components.
+
+See [Installation](./date-picker/installation) guide.
+
+See [API](../api/date-picker/day) usage.
+
+## Usage
+
+See [Day](./day) for more realistic example.
+
+```jsx title=demo.ts
+import { Telegraf } from "telegraph";
+import { DayPicker, MonthPicker } from "@tlgr/date-picker";
+
+const bot = new Telegraf("TELEGRAM TOKEN");
+const day = new DayPicker(bot, options);
+const month = new MonthPicker(bot, options);
+
+bot.command("day", (ctx) => {
+  // render day
+  ctx.reply("pick the day", {
+    inline_keyboard: day.render(),
+  });
+});
+
+bot.command("month", (ctx) => {
+  // render day
+  ctx.reply("pick the month", {
+    inline_keyboard: month.render(),
+  });
+});
+
+bot.launch();
+```

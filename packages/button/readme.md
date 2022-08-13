@@ -89,3 +89,11 @@ buttonWithName.on('click', (ctx, button) => {
 // }
 })
 ```
+
+## Demo
+
+Code available at [`bin.ts`](./bin.ts) file.
+
+![inline image](./assets/button.png)
+
+![Video](./assets/button-demo.ogg)

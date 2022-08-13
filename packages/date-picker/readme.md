@@ -26,6 +26,10 @@ pnpm add @tlgr/date-picker dayjs
 
 ## Video demos
 
-Demo code can be found at [`bit.ts`](bin.ts) file
+Demo code can be found at [`bin.ts`](bin.ts) file
 
-![video](./images/base.mov)
+![day.png](./assets/day-picker.png)
+
+![video](./assets/day-picker-example.ogg)
+
+

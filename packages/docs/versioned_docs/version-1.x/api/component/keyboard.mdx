@@ -1,0 +1,35 @@
+# Keyboard Component
+
+Abstract class which extends [`Component`](./base) instance.
+
+Each class should implement `render` function
+
+```jsx title="example.ts"
+import { KeyboardComponent } from "@tlgr/component";
+class MyComponent extends KeyboardComponent {
+  render() {
+    // returns KeyboardButton from telegram API
+    // e.g. Markup.button.callback('my button');
+  }
+}
+```
+
+## extends
+
+- [`Component`](./base)
+
+## `constructor(bot)`
+
+<small> added in 1.1.0 </small>
+
+- `bot` - <[Object][object]>. [Telegraf](https://telegraf.js.org/classes/Telegraf.html) instance.
+
+## methods
+
+### render()
+
+<small> added in 1.1.0 </small>
+
+Returns Telegram keyboard button isntance.
+
+[object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object

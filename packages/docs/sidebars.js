@@ -26,11 +26,24 @@ const sidebars = {
         {
           type: 'category', label: 'button',
           items: [
-            { type: 'doc', id: 'tutorial/button' },
+            { type: 'doc', id: 'tutorial/button/index' },
             { type: 'doc', id: 'tutorial/button/installation' },
             { type: 'doc', id: 'tutorial/button/events' },
+            { type: 'doc', id: 'tutorial/button/types', label: 'Types' },
           ]
         },
+        {
+          type: 'category', label: 'date picker',
+          items: [
+            { type: 'doc', id: 'tutorial/date-picker/index' },
+            { type: 'doc', id: 'tutorial/date-picker/installation' },
+            { type: 'doc', id: 'tutorial/date-picker/day' },
+            { type: 'doc', id: 'tutorial/date-picker/month' },
+          ]
+        },
+        'tutorial/carousel',
+        'tutorial/poll',
+        'tutorial/quiz',
       ],
     },
   ],
@@ -50,9 +63,14 @@ const sidebars = {
             },
             {
               type: "doc",
-              id: "api/component/class",
+              id: "api/component/inline",
               label: 'InlineComponent'
-            }
+            },
+            {
+              type: "doc",
+              id: "api/component/keyboard",
+              label: 'KeyboardComponent'
+            },
           ],
         },
         {
@@ -61,12 +79,34 @@ const sidebars = {
           "items": [
             {
               "type": "doc",
-              "id": "api/button/class"
+              "id": "api/button/inline",
+              label: 'Inline'
+            },
+            {
+              "type": "doc",
+              "id": "api/button/keyboard",
+              label: 'Keyboard'
             },
             {
               "type": "doc",
               "id": "api/button/events"
-            }
+            },
+            {
+              "type": "doc",
+              "id": "api/button/location"
+            },
+            {
+              "type": "doc",
+              "id": "api/button/phone"
+            },
+            {
+              "type": "doc",
+              "id": "api/button/poll"
+            },
+            {
+              "type": "doc",
+              "id": "api/button/quiz"
+            },
           ]
         },
         {
@@ -80,6 +120,48 @@ const sidebars = {
             {
               "type": "doc",
               "id": "api/date-picker/month"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "📦 @tlgr/carousel",
+          "items": [
+            {
+              "type": "doc",
+              "id": "api/carousel/base"
+            },
+            {
+              "type": "doc",
+              "id": "api/carousel/events"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "📦 @tlgr/poll",
+          "items": [
+            {
+              "type": "doc",
+              "id": "api/poll/base"
+            },
+            {
+              "type": "doc",
+              "id": "api/poll/events"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "📦 @tlgr/quiz",
+          "items": [
+            {
+              "type": "doc",
+              "id": "api/quiz/base"
+            },
+            {
+              "type": "doc",
+              "id": "api/quiz/events"
             }
           ]
         }

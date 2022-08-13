@@ -11,7 +11,7 @@ const button = new Button(options);
 
 ## extends
 
-- [Component](./component)
+- [InlineComponent](../component/inline)
 
 ## `constructor(bot, name, [options])`
 
@@ -35,33 +35,6 @@ const button = new Button(options);
 <small> added in 1.0.0 </small>
 
 - `payload` - <[string][string]> - payload name. Default is `undefined`. Accepts [`number`][number], [`string`][string], [`boolean`][boolean] or [`symbol`][symbol] types.
-
-### `on(event, callback)`
-
-<small> added in 1.0.0 </small>
-
-- `event` - <[string][string]>. Event name. Only can be `click` value. Other events will be ignored.
-- `callback` - <[Function][function]>. Callback function
-
-  - `ctx` - <[Object][object]>. [Telegraf Context](https://telegraf.js.org/classes/Context.html#addStickerToSet).
-  - `button` - <[Object][object]>. [Button](/docs/api/button) instance.
-
-### `once(event, callback)`
-
-<small>added in 1.0.0</small>
-
-- `event` - <[string][string]>. Event name. Only can be `click` value. Other events will be ignored.
-- `callback` - <[Function][function]>. Callback function
-  - `ctx` - <[Object][object]>. [Telegraf Context](https://telegraf.js.org/classes/Context.html#addStickerToSet).
-  - `button` - <[Object][object]>. [Button](/docs/api/button) instance.
-
-### `emit(event, callback)`
-
-<small>added in 1.0.0</small>
-
-- `event` - <[string][string]>. Event name. Only can be `click` value. Other events will be ignored.
-- `ctx` - <[Object][object]>. [Telegraf Context](https://telegraf.js.org/classes/Context.html#addStickerToSet).
-- `button` - <[Object][object]>. [Button](/docs/api/button) instance.
 
 ## properties
 
@@ -102,3 +75,10 @@ Resolved button name. This property consist of `options.prefix` and `options.dis
 #### description
 
 Called payload. Payload sets after [`render([payload])`]('./button#renderpayload') function
+
+[object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+[function]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions
+[string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type
+[boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#boolean_type
+[number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#numeric_types
+[symbol]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#symbol_type

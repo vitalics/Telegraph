@@ -3,11 +3,12 @@ import { randomUUID } from 'crypto';
 import { Context, Markup, Telegraf } from 'telegraf';
 import { InlineKeyboardButton, Update } from 'telegraf/typings/core/types/typegram';
 import { Options } from './types';
-import { Inline, Event } from '@tlgr/component';
+import { Event } from '@tlgr/component';
+import InlineComponent from '@tlgr/component/inline';
 
 type Click = Event<'click', [ctx: Context<Update>, button: Button]>;
 
-export default class Button extends Inline<[Click]> {
+export default class Button extends InlineComponent<[Click]> {
   readonly uuid: string | undefined;
   /**
    * prefix base name
@@ -17,7 +18,7 @@ export default class Button extends Inline<[Click]> {
    * @type {string}
    * @memberof Button
    */
-  #prefix: string = '@tlgr/button';
+  #prefix: string = '@tlgr/button/inline';
   /**
    * Generated button unique name
    * @example
@@ -56,7 +57,7 @@ export default class Button extends Inline<[Click]> {
    * @param {string} text
    * @memberof Button
    */
-  constructor(protected readonly bot: Telegraf, readonly text: string, readonly options?: Options) {
+  constructor(readonly bot: Telegraf, readonly text: string, readonly options?: Options) {
     super(bot);
     if (options?.prefix) {
       this.#prefix = options.prefix;

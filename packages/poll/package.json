@@ -1,0 +1,30 @@
+{
+  "name": "@tlgr/poll",
+  "version": "1.0.17",
+  "description": "Telegram component to create poll",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json",
+    "./poll": "./lib/poll.js",
+    "./bin": null
+  },
+  "keywords": [
+    "telegram",
+    "common components",
+    "poll"
+  ],
+  "author": "Vitali Haradkou",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/vitalics/Telegraph/issues"
+  },
+  "homepage": "https://github.com/vitalics/Telegraph/tree/main/packages/poll#readme",
+  "dependencies": {
+    "@tlgr/component": "workspace:*",
+    "telegraf": "4.8.6"
+  }
+}

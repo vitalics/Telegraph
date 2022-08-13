@@ -20,8 +20,7 @@
   "author": "Vitali Haradkou",
   "license": "Apache 2.0",
   "bugs": {
-    "url": "https://github.com/owner/project/issues",
-    "email": "project@hostname.com"
+    "url": "https://github.com/vitalics/Telegraph/issues"
   },
   "homepage": "https://github.com/vitalics/telegraph#readme",
   "devDependencies": {

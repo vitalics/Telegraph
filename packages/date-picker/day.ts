@@ -1,4 +1,4 @@
-import { Button } from '@tlgr/button';
+import { Inline as InlineButton } from '@tlgr/button';
 import { Inline, Event } from '@tlgr/component';
 
 import dayjs, { Dayjs } from 'dayjs';
@@ -35,17 +35,17 @@ class MonthYear extends Event<'monthyear', [ctx: Context<Update>, monthYear: `${
 
 export default class DayPicker extends Inline<[Day, Weekday, MonthYear, Navigation, Click]> {
   #date = this.options?.date ? dayjs(this.options?.date) : dayjs();
-  #nextButton = new Button(this.bot, this.options?.controls?.next?.symbol ?? '>', { prefix: `@tlgr/date-picker/day/next/${this.#date.month()}`, disableUUID: true, alert: this.options?.controls?.next?.alert });
-  #prevButton = new Button(this.bot, this.options?.controls?.prev?.symbol ?? '<', { prefix: `@tlgr/date-picker/day/prev/${this.#date.month()}`, disableUUID: true, alert: this.options?.controls?.prev?.alert });
-  #currentMMYYYYButton = new Button(this.bot, this.#date.format('MM/YYYY'));
-  #weekdays: Button[];
+  #nextButton = new InlineButton(this.bot, this.options?.controls?.next?.symbol ?? '>', { prefix: `@tlgr/date-picker/day/next/${this.#date.month()}`, disableUUID: true, alert: this.options?.controls?.next?.alert });
+  #prevButton = new InlineButton(this.bot, this.options?.controls?.prev?.symbol ?? '<', { prefix: `@tlgr/date-picker/day/prev/${this.#date.month()}`, disableUUID: true, alert: this.options?.controls?.prev?.alert });
+  #currentMMYYYYButton = new InlineButton(this.bot, this.#date.format('MM/YYYY'));
+  #weekdays: InlineButton[];
   #helper = Helper({ locale: this.options?.locale, disableBeforeToday: !this.options?.showPast, date: this.#date }).Weekdays({ chunks: true }).render();
-  #buttons: Button[][];
+  #buttons: InlineButton[][];
   readonly mode = this.options?.mode ?? 'edit';
   get date() {
     return this.#date.toDate();
   }
-  constructor(protected readonly bot: Telegraf, readonly options?: Options) {
+  constructor(readonly bot: Telegraf, readonly options?: Options) {
     super(bot);
     const [weekdays, days] = this.#helper;
     this.#buttons = (days as (string | null)[][]).map(day =>
@@ -54,7 +54,7 @@ export default class DayPicker extends Inline<[Day, Weekday, MonthYear, Navigati
         return button;
       })
     );
-    this.#weekdays = (weekdays as unknown as string[]).map(weekday => new Button(this.bot, String(weekday), { disableUUID: true, prefix: '@tlgr/weekday' }));
+    this.#weekdays = (weekdays as unknown as string[]).map(weekday => new InlineButton(this.bot, String(weekday), { disableUUID: true, prefix: '@tlgr/weekday' }));
 
     // subscribe to events
     this.subscribe();

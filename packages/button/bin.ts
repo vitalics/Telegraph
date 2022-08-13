@@ -1,22 +1,31 @@
 import { Telegraf } from 'telegraf';
 
-import Button from './inline';
+import Phone from './phone';
+import Location, { Type } from './location';
+import Quiz from './quiz';
+import Poll from './poll';
 
 const TOKEN = '';
 const bot = new Telegraf(TOKEN);
 
-const bump = new Button(bot, 'click me!',);
+const location = new Location(bot);
+const phone = new Phone(bot);
+const quiz = new Quiz(bot);
+const poll = new Poll(bot);
 
-bump.on('click', (ctx, button) => {
-  ctx.reply(`Congrats! Your are clicked with name: ${button.name} and payload: ${button.payload.toString()}`)
-})
+location.on('location', (ctx, location) => {
+  ctx.reply(`Your location is ${(location as Type).latitude}`);
+});
 
-
-bot.command('start', ctx => {
-  bot.telegram.sendMessage(ctx.chat.id, 'hello there! Welcome to button demo.', {
+bot.command('start', async ctx => {
+  await bot.telegram.sendMessage(ctx.chat.id, 'hello there! Welcome to button demo.', {
     reply_markup: {
-      inline_keyboard: [
-        [bump.render('DATA')],
+      one_time_keyboard: true,
+      keyboard: [
+        [phone.render()],
+        [location.render()],
+        [quiz.render()],
+        [poll.render()],
       ],
     }
   });

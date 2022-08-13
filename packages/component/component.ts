@@ -21,15 +21,15 @@ export default abstract class Component<Events extends Event[] = [], EventsColle
   get payload(): Payload {
     return this._payload;
   }
-  protected _payload: Payload;
-  protected readonly emitter = new EventEmitter();
-  constructor(protected readonly bot: Telegraf) { }
-  on<Name extends string | keyof EventsCollection = keyof EventsCollection>(event: Name, listener: (...payload: RestForArrayType<InferObject<EventsCollection, Name>>) => void): EventEmitter {
+  protected _payload: Payload = '';
+  protected readonly emitter = new EventEmitter({ captureRejections: true });
+  constructor(readonly bot: Telegraf) { }
+  on<Name extends string | keyof EventsCollection = keyof EventsCollection, Payload = InferObject<EventsCollection, Name>>(event: Name, listener: (...payload: RestForArrayType<Payload>) => void): EventEmitter {
     return this.emitter.on(event.toString(), (...args) => {
       listener(...args as any);
     });
   }
-  once<Name extends keyof EventsCollection = keyof EventsCollection>(event: Name, listener: (...payload: RestForArrayType<InferObject<EventsCollection, Name>>) => void): EventEmitter {
+  once<Name extends keyof EventsCollection = keyof EventsCollection, Payload = InferObject<EventsCollection, Name>>(event: Name, listener: (...payload: RestForArrayType<Payload>) => void): EventEmitter {
     return this.emitter.once(event.toString(), (...args) => {
       listener(...args as any);
     });

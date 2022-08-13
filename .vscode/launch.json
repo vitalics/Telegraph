@@ -19,6 +19,54 @@
       "outFiles": [
         "${workspaceFolder}/**/*.js"
       ]
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "Button",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "runtimeArgs": [
+        "-r",
+        "ts-node/register",
+        "${workspaceFolder}/packages/button/bin.ts"
+      ],
+      "outFiles": [
+        "${workspaceFolder}/**/*.js"
+      ]
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "Poll",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "runtimeArgs": [
+        "-r",
+        "ts-node/register",
+        "${workspaceFolder}/packages/poll/bin.ts"
+      ],
+      "outFiles": [
+        "${workspaceFolder}/**/*.js"
+      ],
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "Carousel",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "runtimeArgs": [
+        "-r",
+        "ts-node/register",
+        "${workspaceFolder}/packages/carousel/bin.ts"
+      ],
+      "outFiles": [
+        "${workspaceFolder}/**/*.js"
+      ],
     }
   ]
 }
