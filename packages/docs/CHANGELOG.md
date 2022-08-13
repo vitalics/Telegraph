@@ -1,5 +1,13 @@
 # @tlgr/docs
 
+## 1.1.1
+
+### Patch Changes
+
+- ## core
+
+  Fix missing packages for releases
+
 ## 1.1.0
 
 ### Minor Changes
