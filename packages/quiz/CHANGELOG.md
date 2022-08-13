@@ -1,5 +1,16 @@
 # @tlgr/quiz
 
+## 1.1.0
+
+### Minor Changes
+
+-
+
+### Patch Changes
+
+- Updated dependencies
+  - @tlgr/component@1.2.0
+
 ## 1.0.19
 
 ### Patch Changes
