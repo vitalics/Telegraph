@@ -67,6 +67,22 @@
       "outFiles": [
         "${workspaceFolder}/**/*.js"
       ],
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
+      "name": "Fmt",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "runtimeArgs": [
+        "-r",
+        "ts-node/register",
+        "${workspaceFolder}/packages/fmt/bin.ts"
+      ],
+      "outFiles": [
+        "${workspaceFolder}/**/*.js"
+      ],
     }
   ]
 }

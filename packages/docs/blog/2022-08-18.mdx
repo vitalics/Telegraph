@@ -1,0 +1,38 @@
+---
+slug: release 1.3.0
+title: 1.3.0 is here!
+authors: [vitalics]
+tags: [release, telegraph, formatting, fmt]
+---
+
+Version 1.2 was missed due to releasing issue.
+
+The new telegraph component was landed and available on [`npm.js`](https://npmjs.com) site.
+
+## [fmt](https://github.com/vitalics/telegraph/packages/fmt/)
+
+This is not actually a "component" but it includes helpful formatting
+
+Installation:
+
+`npm i @tlgr/fmt`
+
+How it works:
+
+```jsx title=example.ts
+import { fmt, bold } from "@tlgr/fmt";
+import { Telegraf } from "telegraf";
+
+const bot = new Telegraf("<API TOKEN>");
+
+bot.start((ctx) => {
+  // send message
+  ctx.reply(...fmt(`Hello with ${bold("bold")} message`)); // hello with bold message
+});
+
+bot.launch();
+```
+
+Full Changelog available at link: https://github.com/vitalics/Telegraph/blob/main/releases/v1.3.0.md
+
+Made with ❤️ from [vitalics](https://github.com/vitalics)
