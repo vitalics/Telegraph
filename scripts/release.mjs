@@ -6,6 +6,20 @@ const type = argv.type || argv.t;
 let msg = '';
 const upcomingFile = 'upcoming.md';
 
+const template = (type, msg) => `
+---
+"@tlgr/button": ${type}
+"@tlgr/carousel": ${type}
+"@tlgr/component": ${type}
+"@tlgr/date-picker": ${type}
+"@tlgr/docs": ${type}
+"@tlgr/fmt": ${type}
+"@tlgr/poll": ${type}
+"@tlgr/quiz": ${type}
+---
+${msg}
+`;
+
 function assertType(type) {
   if (!['major', 'minor', 'patch'].includes(type)) {
     throw new Error(`Invalid type: ${type}`);
@@ -25,6 +39,10 @@ await $`chmod -R 777 .changeset`; // update permissions for execution
 // create empty changeset file
 await $`pnpm changeset --empty`;
 await $`exit 0`; // exit with success
+
+const { stdout: filename } = await $`find ${process.cwd()}/.changeset -type f -name '*.md' ! -name 'README.md'`; // find filename
+
+await fs.writeFile(filename.trim(), template(type, msg)); // write changeset
 
 await $`pnpm changeset version`; // add changeset
 
