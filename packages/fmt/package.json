@@ -1,0 +1,43 @@
+{
+  "name": "@tlgr/fmt",
+  "version": "1.2.0",
+  "description": "Formatter functions for telegram reply context",
+  "main": "./lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json",
+    "./fmt": "./lib/fmt.js",
+    "./bold": "./lib/bold.js",
+    "./cash": "./lib/cash.js",
+    "./code": "./lib/code.js",
+    "./command": "./lib/command.js",
+    "./email": "./lib/email.js",
+    "./hash": "./lib/hash.js",
+    "./italic": "./lib/italic.js",
+    "./link": "./lib/link.js",
+    "./mention": "./lib/mention.js",
+    "./phone": "./lib/phone.js",
+    "./spoiler": "./lib/spoiler.js",
+    "./strikethrough": "./lib/strikethrough.js",
+    "./underline": "./lib/underline.js"
+  },
+  "keywords": [
+    "Telegram",
+    "utility",
+    "formatting"
+  ],
+  "author": "Vitali Haradkou",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/vitalics/Telegraph/issues"
+  },
+  "homepage": "https://github.com/vitalics/Telegraph/tree/main/packages/poll#readme",
+  "dependencies": {
+    "awesome-phonenumber": "3.3.0",
+    "telegraf": "4.8.6"
+  }
+}

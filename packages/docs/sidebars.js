@@ -44,6 +44,13 @@ const sidebars = {
         'tutorial/carousel',
         'tutorial/poll',
         'tutorial/quiz',
+        {
+          type: 'category', label: 'formatter',
+          items: [
+            { type: 'doc', id: 'tutorial/fmt/base' },
+            { type: 'doc', id: 'tutorial/fmt/advanced' },
+          ]
+        },
       ],
     },
   ],
@@ -163,6 +170,68 @@ const sidebars = {
               "type": "doc",
               "id": "api/quiz/events"
             }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "📦 @tlgr/fmt",
+          "items": [
+            {
+              "type": "doc",
+              "id": "api/fmt/fmt"
+            },
+            {
+              "type": "doc",
+              "id": "api/fmt/bold"
+            },
+            {
+              "type": "doc",
+              "id": "api/fmt/cash"
+            },
+            {
+              "type": "doc",
+              "id": "api/fmt/code"
+            },
+            {
+              "type": "doc",
+              "id": "api/fmt/command"
+            },
+            {
+              "type": "doc",
+              "id": "api/fmt/email"
+            },
+            {
+              "type": "doc",
+              "id": "api/fmt/hash"
+            },
+            {
+              "type": "doc",
+              "id": "api/fmt/italic"
+            },
+            {
+              "type": "doc",
+              "id": "api/fmt/link"
+            },
+            {
+              "type": "doc",
+              "id": "api/fmt/mention"
+            },
+            {
+              "type": "doc",
+              "id": "api/fmt/phone"
+            },
+            {
+              "type": "doc",
+              "id": "api/fmt/spoiler"
+            },
+            {
+              "type": "doc",
+              "id": "api/fmt/strikethrough"
+            },
+            {
+              "type": "doc",
+              "id": "api/fmt/underline"
+            },
           ]
         }
       ]

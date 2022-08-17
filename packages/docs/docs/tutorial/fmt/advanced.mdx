@@ -1,0 +1,116 @@
+# Advanced
+
+## Format
+
+Since `fmt` function realize [`util.format`](https://nodejs.org/api/util.html#utilformatformat-args) node.js function - you can combine template string and node.js formatting.
+
+### Example
+
+```jsx title=advanced.example.ts
+import { fmt, bold, italic, strikethrough } from "@tlgr/fmt";
+import { Telegraf } from "telegraf";
+
+const bot = new Telegraf("<API TOKEN>");
+
+bot.start((ctx) => {
+  ctx.reply(
+    ...fmt(
+      //%s - string content
+      `this %s shows ${bold("bold")}, ${italic("italic")} and ${strikethrough(
+        "strikethrough"
+      )} texts`,
+      "example"
+    )
+  );
+});
+
+bot.launch();
+```
+
+## Email
+
+Provides function to build `email`.
+
+### Example
+
+```jsx title=advance.example.ts
+import { fmt, email } from "@tlgr/fmt";
+import { Telegraf } from "telegraf";
+
+const bot = new Telegraf("<API TOKEN>");
+
+bot.start((ctx) => {
+  ctx.reply(
+    ...fmt(
+      //%s - text snnippet
+      `write me on ${email("firstname_lastname", "example.com")}`
+    ) // returns firstname_lastname@example.com
+  );
+});
+
+bot.launch();
+```
+
+## Mention
+
+Returns user Mention like `@userid`
+
+## URL
+
+Returns link representaion.
+
+If second parameter passed - creates text with link
+
+### Example
+
+```jsx title=url.example.ts
+import { fmt, url } from "@tlgr/fmt";
+import { Telegraf } from "telegraf";
+
+const bot = new Telegraf("<API TOKEN>");
+
+bot.start((ctx) => {
+  ctx.reply(
+    ...fmt(
+      //%s - text snnippet
+      `open ${url("https://google.com", "some text")}`
+    ) // returns some text -> https://google.com
+  );
+});
+
+bot.launch();
+```
+
+## Code
+
+Returns code snippet
+
+## Hash
+
+Returns text with hashtag `#` symbol.
+
+You can pass many hashtags by `hashtags` function.
+
+## Spoiler
+
+Returns telegram spoiler content.
+
+### Example
+
+```jsx title=url.example.ts
+import { fmt, spoiler } from "@tlgr/fmt";
+import { Telegraf } from "telegraf";
+
+const bot = new Telegraf("<API TOKEN>");
+
+bot.start((ctx) => {
+  ctx.reply(
+    ...fmt(
+      //%s - text snnippet
+      `show the spoiler ${spoiler('TA DA')}`
+    )
+  );
+});
+
+bot.launch();
+```
