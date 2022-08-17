@@ -2,6 +2,7 @@
 
 - update release script.
 - migrate linking from release.mjs to changeset config file
+- ignore tests files
 
 ## packages
 
