@@ -35,7 +35,7 @@
   "bugs": {
     "url": "https://github.com/vitalics/Telegraph/issues"
   },
-  "homepage": "https://github.com/vitalics/Telegraph/tree/main/packages/poll#readme",
+  "homepage": "https://github.com/vitalics/Telegraph/tree/main/packages/fmt#readme",
   "dependencies": {
     "awesome-phonenumber": "3.3.0",
     "telegraf": "4.8.6"

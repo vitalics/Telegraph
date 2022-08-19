@@ -4,8 +4,7 @@ Implemented Components:
 
 - [button](./packages/button/)
 - [date-picker](./packages/date-picker/)
-
-Plans:
-
-- time-picker
-- quiz
+- [poll](./packages/poll/)
+- [quiz](./packages/quiz/)
+- [carousel](./packages/carousel/)
+- [fmt](./packages/fmt/)
