@@ -1,5 +1,18 @@
 # @tlgr/carousel
 
+## 1.3.1
+
+### Patch Changes
+
+- [@tlgr/fmt]
+
+  - add readme file
+  - update wrong homepage link in package.json file
+
+- Updated dependencies
+  - @tlgr/button@1.3.1
+  - @tlgr/component@1.3.1
+
 ## 1.3.0
 
 ### Minor Changes

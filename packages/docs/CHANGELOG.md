@@ -1,5 +1,14 @@
 # @tlgr/docs
 
+## 1.3.1
+
+### Patch Changes
+
+- [@tlgr/fmt]
+
+  - add readme file
+  - update wrong homepage link in package.json file
+
 ## 1.3.0
 
 ### Minor Changes
