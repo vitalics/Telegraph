@@ -1,0 +1,57 @@
+# Analytics
+
+## Installation
+
+### PNPm
+
+```bash
+pnpm add @tlgr/analytics
+```
+
+### yarn
+
+```bash
+yarn add @tlgr/analytics
+```
+
+### npm
+
+```bash
+npm install @tlgr/analytics
+```
+
+## Usage
+
+Usage is simple as much as possible.
+
+Example below creates command `start` and reply with text `Hello world`.
+
+Example:
+
+```jsx title=example.ts
+import { Telegraf } from "telegraf";
+import { Analytics } from "@tlgr/analytics";
+
+const bot = new Telegraf("<API TOKEN>");
+
+const analytics = new Analytics(bot, Plugin1, Plugin2, ...etc);
+
+bot.start((ctx) => {
+  // send "hello world" when user promts "/start"
+  ctx.reply("Hello world");
+});
+
+// simple usage
+// analytics.enable();
+// bot.launch();
+
+// advanced usage
+analytics.enable(true); // starts bot. Better use this snippet since it fires additional event "bot:launch"
+
+// some time after
+//analytics.disable();
+// bot.stop();
+
+// or similar but in one line:
+analytics.disable(true); // true = stop bot
+```

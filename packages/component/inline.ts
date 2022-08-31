@@ -10,6 +10,11 @@ import { Payload } from './types';
  * `render` returns `InlineKeyboardButton`
  */
 export default abstract class InlineComponent<Events extends Event[] = []> extends Component<Events> {
+  /** current component payload */
+  get payload(): Payload {
+    return this._payload;
+  }
+  protected _payload: Payload = '';
   /**
    * render function.
    *

@@ -28,6 +28,7 @@
     "telegraf": "4.8.6"
   },
   "dependencies": {
+    "eventemitter2": "6.4.7",
     "telegraf": "4.8.6"
   }
 }
