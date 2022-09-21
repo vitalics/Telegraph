@@ -5,8 +5,6 @@ import { EOL } from 'os';
 import Console from './console';
 import File from './file';
 
-type Levels = 'debug' | 'info' | 'warn' | 'critical'
-
 import type { Plugin } from './types';
 
 export type Options = {
@@ -37,7 +35,9 @@ export default class Stream implements Plugin {
     readonly options?: Readonly<Options>
   ) { }
   readonly name: string = 'stream';
-  [Symbol.toStringTag] = 'Stream';
+  get [Symbol.toStringTag]() {
+    return 'Stream';
+  } 
   listener(event: string, param: any): void {
     const now = new Date().toISOString();
     if (param) {

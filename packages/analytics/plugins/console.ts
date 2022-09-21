@@ -14,5 +14,7 @@ export default class Console extends Stream implements Plugin {
     super(process.stdout, options);
   }
   readonly name = 'console';
-  [Symbol.toStringTag] = 'Console';
+  get [Symbol.toStringTag]() {
+    return 'Console';
+  } 
 };

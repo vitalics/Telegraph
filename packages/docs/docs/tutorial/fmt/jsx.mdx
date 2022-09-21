@@ -1,0 +1,74 @@
+# JSX
+
+Formatter supports JSX markup. it uses [preact](https://preactjs.com/) by default.
+
+## Hot to use JSX
+
+1. install [`@tlgr/fmt`](./base#installation) module.
+2. install preact.
+3. modify `tsconfig.json` file (if neccesary)
+
+In `tsconfig.json` file add next fields:
+
+``` json title="tsconfig.json"
+{
+  "compilerOptions": {
+    // rest options
+    "jsx": "react",
+    "jsxFactory": "h"
+  }
+}
+```
+
+## Usage
+
+1. decide which replying context you would like to use.
+   This tutorial shows working with `context.reply` function.
+
+2. import Function
+
+```jsx title="example.ts"
+import { h } from "preact";
+import { render, Bold } from "@tlgr/fmt/default";
+
+// rest code
+```
+
+3. use JSX for building reply text
+
+```jsx title="example.ts"
+import { h, Fragment } from "preact";
+import { render, Bold, Break, Italic } from "@tlgr/fmt/default";
+
+import { Telegraf } from "telegraf";
+
+const bot = new Telegraf("<API TOKEN>");
+
+bot.start((ctx) => {
+  ctx.reply(
+    ...render(
+      <Fragment>
+        <Bold>This is bold text</Bold>
+        <Break />
+        <Italic>This is italic text</Italic>
+      </Fragment>
+    )
+  );
+});
+
+bot.launch();
+```
+
+:::tip
+Better to wrap high-level component with `Fragment` component from `preact` library.
+:::
+
+## Limitations
+
+- Not use built-in componenets like `a`, `button` etc. Since telegram has a lot of limitations.
+- Use components only for your reply context. For `reply` use components from `default` folder.
+  For `replyWithHTML` use components from `html` folder.
+  for `replyWithMarkdown` and `replyWithMarkdownV2` use components from `markdown`.
+- Each reply context should be call `render` function. As for previous limitation `render` function only for your using context.
+- `render` function in `default` function should be called with `rest/spread` operator, since `reply` function accepts text modifications(like bold, underline, etc.)
+- not all components can be combined with children(e.g. `Bold` and `Italic` can be combined)

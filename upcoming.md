@@ -9,6 +9,11 @@
 - implement analytics component.
 - implement Stream, File and Console plugins
 
+[@tlgr/docs]
+
+- add docs for fmt package.
+- add docs for analytics package.
+
 [@tlgr/component]
 
 - add `any` event.
@@ -17,3 +22,9 @@
 [@tlgr/date-picker]
 
 - add "lib" folder to exclude path for `tsconfig.json` file.
+
+[@tlgr/fmt]
+
+- add JSX support for `reply`, `replyWithHTML` and `replyWithMarkdownV2`
+- update `tsconfig.json` file
+- update README.MD file

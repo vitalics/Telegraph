@@ -15,6 +15,8 @@ export default class File extends Stream implements Plugin {
   constructor(readonly path: PathLike, readonly options?: Readonly<Options>) {
     super(createWriteStream(path), options);
   }
-  [Symbol.toStringTag] = 'File';
+  get [Symbol.toStringTag]() {
+    return 'File';
+  }
   readonly name = 'file';
 };

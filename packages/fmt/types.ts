@@ -28,3 +28,7 @@ export type ParsePrintFormat<S extends string,
   ParsePrintFormat<Last, [...A, ControlsMap[Control]]> :
   ParsePrintFormat<Last, A>
   : A;
+
+declare interface IntrinsicElements {
+  'tg-spoiler': import('preact').JSX.HTMLAttributes<HTMLElement>;
+}

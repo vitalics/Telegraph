@@ -1,0 +1,33 @@
+# Analytics
+
+## `constructor(bot, [...plugins])`
+
+<small> added in 1.4.0 </small>
+
+- `bot` - <[Object][object]>. [Telegraf](https://telegraf.js.org/classes/Telegraf.html) instance.
+- `plugins` - <[Array][array]>. Array of [plugins](./plugin) which will be enabled.
+
+## methods
+
+### enable(launchImmediate)
+
+<small> added in 1.4.0 </small>
+
+Enable analytics.
+If `launchImmediate` is `true` - also calls `bot.launch()` under the hood.
+
+### enable(stopImmediate)
+
+<small> added in 1.4.0 </small>
+
+Disable analytics.
+If `stopImmediate` is `true` - also calls `bot.stop()` under the hood.
+
+
+[object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+[array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+[function]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions
+[string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type
+[boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#boolean_type
+[number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#numeric_types
+[symbol]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#symbol_type

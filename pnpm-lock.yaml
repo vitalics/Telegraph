@@ -112,10 +112,30 @@ importers:
   packages/fmt:
     specifiers:
       awesome-phonenumber: 3.3.0
+      node-html-parser: 6.1.0
+      preact: 10.11.0
+      preact-render-to-string: 5.2.4
       telegraf: 4.8.6
     dependencies:
       awesome-phonenumber: 3.3.0
+      node-html-parser: 6.1.0
+      preact: 10.11.0
+      preact-render-to-string: 5.2.4_preact@10.11.0
       telegraf: 4.8.6
+
+  packages/jsx:
+    specifiers:
+      preact: 10.11.0
+      preact-render-to-string: 5.2.4
+    dependencies:
+      preact: 10.11.0
+      preact-render-to-string: 5.2.4_preact@10.11.0
+
+  packages/jsx/example:
+    specifiers:
+      '@tlgr/jsx': workspace:*
+    dependencies:
+      '@tlgr/jsx': link:..
 
   packages/poll:
     specifiers:
@@ -7505,6 +7525,13 @@ packages:
     engines: {node: '>= 6.13.0'}
     dev: false
 
+  /node-html-parser/6.1.0:
+    resolution: {integrity: sha512-lL3NirV1ihtYPfjTljB5Vu6gxMfxzWNkM1cz3VzYLxm8tuDgZhOKuHwx1JjaT+ceStTjV43H71a+SUq9Jq3BJQ==}
+    dependencies:
+      css-select: 4.3.0
+      he: 1.2.0
+    dev: false
+
   /node-int64/0.4.0:
     resolution: {integrity: sha512-O5lz91xSOeoXP6DulyHfllpq+Eg00MWitZIbtPfoSEvqIHdl5gfcY6hYzDWnj0qD5tz52PI08u9qUvSVeUBeHw==}
     dev: true
@@ -8261,6 +8288,19 @@ packages:
       source-map-js: 1.0.2
     dev: false
 
+  /preact-render-to-string/5.2.4_preact@10.11.0:
+    resolution: {integrity: sha512-iIPHb3BXUQ3Za6KNhkjN/waq11Oh+QWWtAgN3id3LrL+cszH3DYh8TxJPNQ6Aogsbu4JsqdJLBZltwPFpG6N6w==}
+    peerDependencies:
+      preact: '>=10'
+    dependencies:
+      preact: 10.11.0
+      pretty-format: 3.8.0
+    dev: false
+
+  /preact/10.11.0:
+    resolution: {integrity: sha512-Fk6+vB2kb6mSJfDgODq0YDhMfl0HNtK5+Uc9QqECO4nlyPAQwCI+BKyWO//idA7ikV7o+0Fm6LQmNuQi1wXI1w==}
+    dev: false
+
   /preferred-pm/3.0.3:
     resolution: {integrity: sha512-+wZgbxNES/KlJs9q40F/1sfOd/j7f1O9JaHcW5Dsn3aUUOZg3L2bjpVUcKV2jvtElYfoTuQiNeMfQJ4kwUAhCQ==}
     engines: {node: '>=10'}
@@ -8298,6 +8338,10 @@ packages:
       ansi-styles: 5.2.0
       react-is: 18.2.0
     dev: true
+
+  /pretty-format/3.8.0:
+    resolution: {integrity: sha512-WuxUnVtlWL1OfZFQFuqvnvs6MiAGk9UNsBostyBOB0Is9wb5uRESevA6rnl/rkksXaGX3GzZhPup5d6Vp1nFew==}
+    dev: false
 
   /pretty-time/1.1.0:
     resolution: {integrity: sha512-28iF6xPQrP8Oa6uxE6a1biz+lWeTOAPKggvjB8HAs6nVMKZwf5bG++632Dx614hIWgUPkgivRfG+a8uAXGTIbA==}

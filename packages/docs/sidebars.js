@@ -44,11 +44,13 @@ const sidebars = {
         'tutorial/carousel',
         'tutorial/poll',
         'tutorial/quiz',
+        'tutorial/analytics/index',
         {
           type: 'category', label: 'formatter',
           items: [
             { type: 'doc', id: 'tutorial/fmt/base' },
             { type: 'doc', id: 'tutorial/fmt/advanced' },
+            { type: 'doc', id: 'tutorial/fmt/jsx' },
           ]
         },
       ],
@@ -59,6 +61,22 @@ const sidebars = {
       "type": "category",
       "label": "API reference",
       "items": [
+        {
+          "type": "category",
+          "label": "📦 @tlgr/analytics",
+          items: [
+            {
+              type: "doc",
+              id: "api/analytics/index",
+              label: 'Analytics'
+            },
+            {
+              type: "doc",
+              id: "api/analytics/plugin",
+              label: 'Plugin'
+            },
+          ],
+        },
         {
           "type": "category",
           "label": "📦 @tlgr/component",

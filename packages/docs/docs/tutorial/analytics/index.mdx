@@ -55,3 +55,67 @@ analytics.enable(true); // starts bot. Better use this snippet since it fires ad
 // or similar but in one line:
 analytics.disable(true); // true = stop bot
 ```
+
+
+## Plugins
+
+Currently only 3 plugins available:
+
+- stream
+- console
+- file
+- server
+
+### Stream
+
+Plugin which accepts writable stream and write result to this stream.
+
+## Custom plugins
+
+
+1. import plugin:
+
+``` ts
+// filename: custom-plugin.ts
+import type { Plugin } from '@tlgr/analytics/plugins';
+
+class MyPlugin implements Plugin {
+  name = 'custom plugin';
+
+  constructor(){
+    http.initSession();
+  }
+
+  listener(event: string, param: any) {
+    console.log(event, param);
+    if(event === 'my custom event') {
+      http.post('http://server.com', param)
+    }
+  }
+  end(){
+    http.closeSession();
+  }
+}
+
+```
+
+2. use custom plugin in your code
+
+``` ts
+import { Telegraf } from 'telegraf';
+import Analytics from './analytics';
+
+import {MyPlugin} from './custom-plugin';
+
+const TOKEN = '';
+const bot = new Telegraf(TOKEN);
+
+const analytics = new Analytics(bot, new MyPlugin());
+
+bot.start(ctx => {
+  // sends hello world when user sends "/start" command
+  bot.telegram.sendMessage(ctx.chat.id, 'Hello world');
+});
+
+analytics.enable(true);
+```

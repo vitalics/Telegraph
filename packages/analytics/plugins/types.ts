@@ -18,9 +18,9 @@
    * @param {string} event
    * @param {*} param
    */
-  listener(event: string, param: any): void;
+  listener(event: string, param: any): void | Promise<void>;
   /**
    * Triggers when `close` in analytics object called.
    */
-  end?(): void;
+  end?(): void | Promise<void>;
 };

@@ -10,6 +10,7 @@
   "exports": {
     ".": "./lib/index.js",
     "./package.json": "./package.json",
+    "./bin": null,
     "./fmt": "./lib/fmt.js",
     "./bold": "./lib/bold.js",
     "./cash": "./lib/cash.js",
@@ -23,12 +24,17 @@
     "./phone": "./lib/phone.js",
     "./spoiler": "./lib/spoiler.js",
     "./strikethrough": "./lib/strikethrough.js",
-    "./underline": "./lib/underline.js"
+    "./underline": "./lib/underline.js",
+    "./html/*": "./lib/html/*",
+    "./markdown/*": "./lib/markdown/*",
+    "./default/*": "./lib/default/*",
+    "./common/*": null
   },
   "keywords": [
     "Telegram",
     "utility",
-    "formatting"
+    "formatting",
+    "JSX"
   ],
   "author": "Vitali Haradkou",
   "license": "Apache 2.0",
@@ -38,6 +44,9 @@
   "homepage": "https://github.com/vitalics/Telegraph/tree/main/packages/fmt#readme",
   "dependencies": {
     "awesome-phonenumber": "3.3.0",
+    "node-html-parser": "6.1.0",
+    "preact": "10.11.0",
+    "preact-render-to-string": "5.2.4",
     "telegraf": "4.8.6"
   }
 }

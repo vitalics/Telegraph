@@ -62,16 +62,16 @@ export default class Analytics extends Component<Events> {
     });
 
     // on any event - trigger plugins listener.
-    this.emitter.onAny((event, param) => {
-      this.#plugins.forEach(p => {
+    this.emitter.onAny(async (event, param) => {
+      await Promise.all(this.plugins.map(async p => {
         if (Array.isArray(event)) {
-          event.forEach(e => {
-            p.listener(e, param);
-          });
+          await Promise.all(event.map(e => {
+            return p.listener(e, param);
+          }));
         } else {
-          p.listener(event, param);
+          await p.listener(event, param);
         }
-      })
+      }))
     });
 
 
