@@ -1,0 +1,45 @@
+---
+slug: release 1.4.0
+title: 1.4.0 JSX and Analytics!
+authors: [vitalics]
+tags: [release, telegraph, formatting, fmt, analytics, jsx]
+---
+
+The new telegraph component was landed and available on [`npm.js`](https://npmjs.com) site.
+
+## [analytics](https://github.com/vitalics/telegraph/packages/analytics/)
+
+This components listen any chat iteraction with user and emits events with `analytics` prefix.
+
+Analytics components also defines `PluginAPI` to write a custom extensions for analytics. [See docs](https://vitalics.github.io/Telegraph/docs/tutorial/analytics#custom-plugins) how to work with plugins.
+
+Installation:
+
+`npm i @tlgr/analytics`
+
+How it works:
+
+```jsx title=example.ts
+import { Analytics } from "@tlgr/analytics";
+import { Console } from "@tlgr/analytics/plugins";
+import { Telegraf } from "telegraf";
+
+const bot = new Telegraf("<API TOKEN>");
+
+const analytics = new Analytics(bot, new Console());
+
+analytics.enable(true); // true - launch imidiately
+bot.start((ctx) => {
+  // send message
+  ctx.reply(/** reply message */);
+});
+
+// fires event with start command, and reply text as param.
+```
+
+JSX support for `fmt` package.
+
+For now, when you want to reply message, you can use `JSX` markup.
+[See docs](https://vitalics.github.io/Telegraph/docs/tutorial/fmt/jsx) how to enable JSX support
+
+Full Changelog available at link: https://github.com/vitalics/Telegraph/blob/main/releases/v1.4.0.md
