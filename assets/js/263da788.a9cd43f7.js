@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_tlgr_docs=self.webpackChunk_tlgr_docs||[]).push([[962],{4883:e=>{e.exports=JSON.parse('{"permalink":"/Telegraph/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":3,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
