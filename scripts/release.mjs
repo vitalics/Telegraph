@@ -8,6 +8,7 @@ const upcomingFile = 'upcoming.md';
 
 const template = (type, msg) => `
 ---
+"@tlgr/analytics": ${type}
 "@tlgr/button": ${type}
 "@tlgr/carousel": ${type}
 "@tlgr/component": ${type}

@@ -2,6 +2,105 @@
 
 Formatter for telegram context.
 
+## Working with JSX
+
+1. install `preact` dependency.
+
+``` bash
+npm i preact
+```
+
+2. update `tsconfig.json` file(if necessary)
+and add jsx support:
+
+``` json
+{
+  "compilerOptions": {
+    // tsconfig options
+      "jsx": "react",
+      "jsxFactory": "h"
+    }
+}
+```
+
+3. Update file names(`.js` -> `.jsx` or `.ts` -> `.tsx`)
+
+4. Enjoy using JSX :)
+
+Example:
+
+``` tsx
+import { h, Fragment } from 'preact';
+import {render, Bold} from '@tlgr/fmt/default';
+
+const bot = new Telegraf('<API TOKEN>');
+
+bot.start(ctx => {
+  ctx.reply(...render(
+    <Fragment>
+        <Bold>Some text is bolded</Bold>
+    </Fragment>
+))
+})
+
+bot.launch();
+
+```
+
+## Reply context
+
+There is 3 various JSX reply context.
+
+1. default - use it for `ctx.reply` function.
+
+> Also its important to use spread operator for render function since this function is returns tuple with raw text and it's modificators(like bold, mention, etc.)
+
+2. markdown - use this package when you want to reply with markdown V2.
+3. html - use this package when you want to reply with HTML.
+
+Example with markdown:
+
+``` tsx
+import { h, Fragment } from 'preact';
+import {render, Bold} from '@tlgr/fmt/markdown';
+
+const bot = new Telegraf('<API TOKEN>');
+
+bot.start(ctx => {
+  // NOTE: not use spread operator, since render returns raw string
+  ctx.replyWithMarkdownV2(render(
+    <Fragment>
+        <Bold>Some text is bolded</Bold>
+    </Fragment>
+  ))
+})
+
+bot.launch();
+
+```
+
+
+Example with html:
+
+``` tsx
+import { h, Fragment } from 'preact';
+import {render, Bold} from '@tlgr/fmt/markdown';
+
+const bot = new Telegraf('<API TOKEN>');
+
+bot.start(ctx => {
+  // NOTE: not use spread operator, since render returns raw string
+  ctx.replyWithHTML(render(
+    <Fragment>
+        <Bold>Some text is bolded</Bold>
+    </Fragment>
+  ))
+})
+
+bot.launch();
+
+```
+
 ## Supported formatter functions
 
 - bold - make text **bold**

@@ -7,6 +7,22 @@
     {
       "type": "pwa-node",
       "request": "launch",
+      "name": "Analytics",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "runtimeArgs": [
+        "-r",
+        "ts-node/register",
+        "${workspaceFolder}/packages/analytics/bin.ts"
+      ],
+      "outFiles": [
+        "${workspaceFolder}/**/*.js"
+      ],
+    },
+    {
+      "type": "pwa-node",
+      "request": "launch",
       "name": "Date Picker",
       "skipFiles": [
         "<node_internals>/**"

@@ -1,6 +1,11 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "lib"
-  }
+    "outDir": "lib",
+    "jsx": "react",
+    "jsxFactory": "h"
+  },
+  "exclude": [
+    "lib"
+  ]
 }

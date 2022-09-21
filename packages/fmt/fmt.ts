@@ -5,22 +5,18 @@ import { format } from 'util';
 import { ParsePrintFormat } from './types';
 import { replaceAt } from './util';
 
-type Decorations = MessageEntity.CommonMessageEntity['type'];
+type Decorations = Extract<
+  MessageEntity.CommonMessageEntity['type'],
+  'spoiler' | 'underline' | 'code' | 'bold' | 'italic' | 'strikethrough' | 'url'>;
 // ENUM type decoration -> tag name
 const tagTypes: Record<Decorations, string> = {
-  spoiler: 'spoiler',
+  spoiler: 'tg-spoiler',
   underline: 'u',
   code: 'code',
-  bold: 'bold',
+  bold: 'b',
   italic: 'i',
-  strikethrough: 'strikethrough',
-  hashtag: 'hash',
-  cashtag: 'cash',
+  strikethrough: 's',
   url: 'link',
-  email: 'email',
-  mention: 'mention',
-  phone_number: 'phone',
-  bot_command: 'command'
 };
 
 const types = Object.keys(tagTypes) as (keyof typeof tagTypes)[];

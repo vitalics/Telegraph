@@ -77,8 +77,10 @@ export default class Button extends InlineComponent<[Click]> {
     const regex = new RegExp(this.name);
     this.bot.action(regex, async (ctx, next) => {
       this.emit(new Event('click', ctx, this));
+      this.emit(new Event('analytics:button:inline:click', ctx, this))
       if (this.options?.alert) {
         await ctx.answerCbQuery(this.options.alert.text, { show_alert: this.options.alert.mode === 'modal' })
+        this.emit(new Event('analytics:button:inline:alert', ctx, this))
       }
       await next();
     });
@@ -93,6 +95,7 @@ export default class Button extends InlineComponent<[Click]> {
     const divider = this.options?.payloadDivider ?? '-';
     const resolved = payload ? `${this.name}${divider}${payload.toString()}` : this.name
     this._payload = payload;
+    this.emit(new Event('analytics:button:inline:render', resolved));
     return Markup.button.callback(this.text, resolved);
   }
 }

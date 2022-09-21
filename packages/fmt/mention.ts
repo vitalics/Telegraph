@@ -1,4 +1,4 @@
-import { decorate } from './util';
+import { decorate, decorateTag } from './util';
 
 /**
  * Returns user mention telegram string.
@@ -11,5 +11,5 @@ import { decorate } from './util';
  * @return {*} User mention. E.g. `@example_user`
  */
 export default function mention<S extends string>(str: S | TemplateStringsArray) {
-  return decorate(`@${str}`, 'mention')
+  return decorateTag(`@${str}`, 'mention')
 }
