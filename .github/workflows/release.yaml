@@ -52,6 +52,7 @@ jobs:
             ### Changelog
             {commits}
             Full changelog: {range}
+            See [Previous releases](https://github.com/vitalics/Telegraph/tree/main/releases)
             made with ❤ from Vitali Haradkou
       # publish to npm each package in separate npm.js
       - name: Publish to npm
