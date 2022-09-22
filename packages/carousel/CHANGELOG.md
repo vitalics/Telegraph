@@ -1,5 +1,14 @@
 # @tlgr/carousel
 
+## 1.4.2
+
+### Patch Changes
+
+-
+- Updated dependencies
+  - @tlgr/button@1.4.2
+  - @tlgr/component@1.4.2
+
 ## 1.4.1
 
 ### Patch Changes

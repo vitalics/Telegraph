@@ -1,6 +1,6 @@
 {
   "name": "@tlgr/analytics",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Telegram analytics component",
   "main": "./lib/index.js",
   "scripts": {

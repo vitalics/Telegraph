@@ -1,6 +1,6 @@
 {
   "name": "@tlgr/quiz",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Telegram component for build quiz",
   "main": "lib/index.js",
   "scripts": {
