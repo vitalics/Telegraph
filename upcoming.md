@@ -1,3 +1,7 @@
+## core
+
+- add release log for new releases
+
 ## packages
 
 [@tlgr/docs]
