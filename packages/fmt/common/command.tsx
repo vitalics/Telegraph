@@ -1,7 +1,7 @@
 import { Fragment, h, JSX } from 'preact';
 
 type Props = {
-  children: string | JSX.Element
+  name: string;
 };
 
 /**
@@ -16,6 +16,6 @@ type Props = {
  * @param {(S)} str command name
  * @return {*} string
  */
-export default function ({ children }: Props) {
-  return <Fragment>/{children}</Fragment>
+export default function ({ name }: Props) {
+  return <Fragment>/{name}</Fragment>
 }

@@ -1,7 +1,7 @@
 import { Fragment, h, JSX } from 'preact';
 
 type Props = {
-  children: string;
+  username: string;
 };
 
 /** 
@@ -13,6 +13,6 @@ type Props = {
  * <Mention>some_user_name</Mention>
  * // same as '@some_user_name'
  */
-export default function ({ children }: Props) {
-  return <Fragment>@{children}</Fragment>;
+export default function ({ username }: Props) {
+  return <Fragment>@{username}</Fragment>;
 }

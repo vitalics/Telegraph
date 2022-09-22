@@ -44,12 +44,17 @@ jobs:
           git config --global user.email "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
           echo "GIT_USER=${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
       - run: pnpm release --type ${{ github.event.inputs.release_type || 'patch' }}
+      - run: |
+          TAG=`git describe --tags --abbrev=0`
+          RELEASE_LOG=$(<./releases/$TAG.md)
       - uses: fregante/release-with-changelog@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-template: "- {title} ← {hash}"
           template: |
             ### Changelog
+            $RELEASE_LOG
+            ### PRs
             {commits}
             Full changelog: {range}
             See [Previous releases](https://github.com/vitalics/Telegraph/tree/main/releases)

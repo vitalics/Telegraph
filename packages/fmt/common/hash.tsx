@@ -1,9 +1,9 @@
 import { Fragment, h, JSX } from 'preact';
 
 type Props = {
-  children: string | JSX.Element;
+  hash: string;
 };
 
-export default function ({ children }: Props) {
-  return <Fragment>#{children}</Fragment>;
+export default function ({ hash }: Props) {
+  return <Fragment>#{hash}</Fragment>;
 }
