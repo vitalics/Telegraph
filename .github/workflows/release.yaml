@@ -44,20 +44,28 @@ jobs:
           git config --global user.email "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
           echo "GIT_USER=${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
       - run: pnpm release --type ${{ github.event.inputs.release_type || 'patch' }}
-      - run: |
+      - name: Get release log from changelog
+        run: |
           TAG=`git describe --tags --abbrev=0`
           RELEASE_LOG=$(<./releases/$TAG.md)
+          echo "RELEASE_LOG=$RELEASE_LOG" >> $GITHUB_ENV
       - uses: fregante/release-with-changelog@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-template: "- {title} ← {hash}"
           template: |
             ### Changelog
-            $RELEASE_LOG
+
+            ${{ env.RELEASE_LOG }}
+
             ### PRs
+
             {commits}
+
             Full changelog: {range}
+
             See [Previous releases](https://github.com/vitalics/Telegraph/tree/main/releases)
+
             made with ❤ from Vitali Haradkou
       # publish to npm each package in separate npm.js
       - name: Publish to npm
