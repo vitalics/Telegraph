@@ -1,6 +1,6 @@
 {
   "name": "@tlgr/poll",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Telegram component to create poll",
   "main": "lib/index.js",
   "scripts": {
