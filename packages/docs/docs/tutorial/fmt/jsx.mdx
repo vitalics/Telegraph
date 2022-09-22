@@ -72,3 +72,4 @@ Better to wrap high-level component with `Fragment` component from `preact` libr
 - Each reply context should be call `render` function. As for previous limitation `render` function only for your using context.
 - `render` function in `default` function should be called with `rest/spread` operator, since `reply` function accepts text modifications(like bold, underline, etc.)
 - not all components can be combined with children(e.g. `Bold` and `Italic` can be combined)
+- do not crate component with many hierarchies. Better to use 1 hierary without depths.
