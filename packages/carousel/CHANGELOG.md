@@ -1,5 +1,23 @@
 # @tlgr/carousel
 
+## 1.5.1
+
+### Patch Changes
+
+- ## packages
+
+  [@tlgr/docs]
+
+  - added docs about each react component
+
+  [@tlgr/fmt]
+
+  - fix link props type
+
+- Updated dependencies
+  - @tlgr/button@1.5.1
+  - @tlgr/component@1.5.1
+
 ## 1.5.0
 
 ### Minor Changes

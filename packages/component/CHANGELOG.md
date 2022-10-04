@@ -1,5 +1,19 @@
 # @tlgr/component
 
+## 1.5.1
+
+### Patch Changes
+
+- ## packages
+
+  [@tlgr/docs]
+
+  - added docs about each react component
+
+  [@tlgr/fmt]
+
+  - fix link props type
+
 ## 1.5.0
 
 ### Minor Changes
