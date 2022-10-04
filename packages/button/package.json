@@ -1,6 +1,6 @@
 {
   "name": "@tlgr/button",
-  "version": "1.4.4",
+  "version": "1.5.0",
   "description": "telegram button wrapper in easy API",
   "main": "lib/index.js",
   "scripts": {
