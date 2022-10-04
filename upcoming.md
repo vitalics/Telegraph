@@ -13,3 +13,7 @@
 [@tlgr/fig]
 
 - init fig package and mark them as private(non pushable)
+
+[@tlgr/quiz]
+
+- fix missing build command
