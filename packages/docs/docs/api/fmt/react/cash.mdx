@@ -1,24 +1,23 @@
-# Cash
+# Cash API
 
-## cash(number, opts)
+append currency to number
 
-<small>Added in 1.3.0 </small>
+<small>added in 1.5.0</small>
 
-Mark input number with cash
+## Import
 
-- `number` - <[number][number]> Cash price.
-- `opts` - <[Object][object]> format options.
+```jsx
+import Cash from "@tlgr/fmt/react/cash";
+// or
+import { Cash } from "@tlgr/fmt/react";
+```
 
-  - `locale` - <[string][string]> format locale. Default `en-US`.
-  - `currency` - <[string][string]> Currency code, e.g. `JPY`, `USD`, `EUR`. Default `USD`.
-  - `currencyDisplay` - <[string][string]>. Currency display.
-  - `maximumSignificantDigits` - <[number][number]> maximum digits for not floating part.
-  - `minimumSignificantDigits` - <[number][number]> minimum digits for not floating part.
-  - `maximumFractionDigits` - <[number][number]> maximum digits for floating part.
-  - `minimumFractionDigits` - <[number][number]> maximum digits for floating part.
-  - `minimumIntegerDigits` - <[number][number]> minimum integer digits.
-  - `signDisplay` - <[string][string]> sign display. Possible values: `auto` | `never` | `always` | `exceptZero`.
+## Props
 
-[number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#numeric_types
-[object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
-[string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type
+| Name            | Type   | Default | Description                      |
+| --------------- | ------ | ------- | -------------------------------- |
+| cash            | string |         | Required. numeric representation |
+| locale          | string | en-US   | Intl.format locale               |
+| currency        | string | USD     | Intl.format currency code        |
+| currencyDisplay | string | $       | Intl.format currency display     |
+

@@ -1,0 +1,21 @@
+# Email API
+
+Returns email representation. Example `first_last@domen.com`
+
+<small>added in 1.5.0</small>
+
+## Import
+
+```jsx
+import Email from "@tlgr/fmt/react/email";
+// or
+import { Eommand } from "@tlgr/fmt/react";
+```
+
+## Props
+
+| Name  | Type   | Default | Description                                                                                          |
+| ----- | ------ | ------- | ---------------------------------------------------------------------------------------------------- |
+| name  | string |         | Required for domen. Email name with last name. E.g. `fist_last`                                      |
+| domen | string |         | Required for name. Email domen. E.g. `example.com`                                                   |
+| email | string |         | Required if name and domen is not provided. full email representation. E.g. `first_last@example.com` |

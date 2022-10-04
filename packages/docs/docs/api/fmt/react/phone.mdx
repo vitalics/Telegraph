@@ -1,0 +1,23 @@
+# Phone API
+
+return formatted phone number.
+
+It uses [`awesome-phonenumber`](https://www.npmjs.com/package/awesome-phonenumber) under the hood.
+
+<small>added in 1.5.0</small>
+
+## Import
+
+```jsx
+import Phone from "@tlgr/fmt/react/phone";
+// or
+import { Phone } from "@tlgr/fmt/react";
+```
+
+## Props
+
+| Name       | Type            | Default | Description                                                                                                                                   |
+| ---------- | --------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| phone      | `string/number` |         | phone number                                                                                                                                  |
+| format     | string          |         | phone number format                                                                                                                           |
+| regionCode | string          |         | Region code for the phone number (only required if phoneNumber is on a national format). Example: 'SE' for Sweden, 'CH' for Switzerland, etc. |

@@ -1,6 +1,14 @@
 import { h } from 'preact';
 
-export default function (url: string | URL, name?: string) {
-  const link = url.toString();
-  return <a href={link}>{name ?? link}</a>
+type Props = {
+  url: string | URL;
+  name?: string;
+}
+
+/** 
+ * Returns HTML link representation
+ */
+export default function (props: Props) {
+  const link = props.url.toString();
+  return <a href={link}>{props.name ?? link}</a>
 }

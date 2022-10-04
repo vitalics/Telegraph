@@ -1,15 +1,13 @@
-# Fmt
+# render
 
-Formatter function which implements node.js `util.inspect` function.
+Returns HTML raw texts
 
-Returns raw texts with telegram entities modifiers
-
-## fmt(input, [...args])
+## render(children, [...args])
 
 <small>added in 1.3.0</small>
 
-- `input` - <[string][string]>. Input string, accepts `TemplateStringArray` instead of string.
-- `args` - <[array][array]> Formatter arguments. See `util.inspect` about inspect arguments.
+- `children` - <[JSX.Element][jsxelement]>. Input string, accepts `TemplateStringArray` instead of string.
+- `args` - <[Object][object]> reply context object. Note: `render` already uses `{parse_mode: 'HTML'}`. Do not overwrite this property
 
 ## returns
 
@@ -18,12 +16,16 @@ Array of raw text without text modifiers and array of modifiers.
 ### Example
 
 ```jsx
-const formatteed = fmt(`some ${bold("bold")} text`);
-formatted[0]; // some bold text
-formatted[1]; // { entities: [
-// { lenght: 4, offset: 5, type: 'bold' }
-// ]}
+const formatteed = render(
+  <Fragment>
+    some <Bold>bold</Bold> text
+  </Fragment>
+);
+formatted[0]; // some <b>bold</b> text
+formatted[1]; // { parse_mode: 'HTML'}
 ```
 
+[object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+[jsxelement]: https://preactjs.com/guide/v10/api-reference/#h--createelement
 [string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type
 [array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
