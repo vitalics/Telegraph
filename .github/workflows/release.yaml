@@ -47,8 +47,11 @@ jobs:
       - name: Get release log from changelog
         run: |
           TAG=`git describe --tags --abbrev=0`
-          RELEASE_LOG=$(<./releases/$TAG.md)
-          echo "RELEASE_LOG=$RELEASE_LOG" >> $GITHUB_ENV
+          RELEASE_LOG=$(< ./releases/$TAG.md)
+          echo "workaround described here: https://trstringer.com/github-actions-multiline-strings/"
+          echo "RELEASE_LOG<<EOF" >> $GITHUB_ENV
+          echo "$RELEASE_LOG" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
       - uses: fregante/release-with-changelog@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
