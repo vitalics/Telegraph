@@ -43,11 +43,13 @@ jobs:
           git config --global user.name "github-actions[bot]" &&
           git config --global user.email "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
           echo "GIT_USER=${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
+      - name: Get upcoming changes
+        run: |
+          RELEASE_LOG=$(< ./upcoming.md)
       - run: pnpm release --type ${{ github.event.inputs.release_type || 'patch' }}
       - name: Get release log from changelog
         run: |
           TAG=`git describe --tags --abbrev=0`
-          RELEASE_LOG=$(< ./releases/$TAG.md)
           echo "workaround described here: https://trstringer.com/github-actions-multiline-strings/"
           echo "RELEASE_LOG<<EOF" >> $GITHUB_ENV
           echo "$RELEASE_LOG" >> $GITHUB_ENV
