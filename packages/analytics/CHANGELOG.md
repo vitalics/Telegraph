@@ -1,5 +1,13 @@
 # @tlgr/analytics
 
+## 1.4.4
+
+### Patch Changes
+
+-
+- Updated dependencies
+  - @tlgr/component@1.4.4
+
 ## 1.4.3
 
 ### Patch Changes

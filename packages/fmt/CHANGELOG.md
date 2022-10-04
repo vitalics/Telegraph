@@ -1,5 +1,11 @@
 # @tlgr/fmt
 
+## 1.4.4
+
+### Patch Changes
+
+-
+
 ## 1.4.3
 
 ### Patch Changes
