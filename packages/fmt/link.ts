@@ -1,6 +1,8 @@
-import { decorate } from './util';
+import { decorateTag } from './util';
 
 /**
+ * @deprecated use `string` module instead
+ * 
  * Returns telegram link representation
  *
  * @export
@@ -10,5 +12,5 @@ import { decorate } from './util';
  */
 export default function link<Name extends string, Url extends URL | string>(url: Url, name?: Name) {
   const parsed = new URL(url.toString());
-  return decorate(`${name || ''}||${parsed.toString()}`, 'link')
+  return decorateTag(`${name || ''}||${parsed.toString()}`, 'link')
 }

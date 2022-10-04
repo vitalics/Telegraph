@@ -49,51 +49,46 @@ bot.launch();
 
 ## Reply context
 
-There is 3 various JSX reply context.
+1. `string` - use it in case of using template string.
+2. `react` - use it in case of using JSX components.
 
-1. default - use it for `ctx.reply` function.
+> Also its important to use spread operator for render function since this function is returns tuple with raw text and it's modifications (like bold, mention, etc.)
 
-> Also its important to use spread operator for render function since this function is returns tuple with raw text and it's modificators(like bold, mention, etc.)
+3. `markdown` (deprecated) - use this package when you want to reply with markdown V2.
+4. `html` (deprecated) - use this package when you want to reply with HTML.
 
-2. markdown - use this package when you want to reply with markdown V2.
-3. html - use this package when you want to reply with HTML.
-
-Example with markdown:
+Example with react:
 
 ``` tsx
 import { h, Fragment } from 'preact';
-import {render, Bold} from '@tlgr/fmt/markdown';
+import { render, Bold } from '@tlgr/fmt/react';
 
 const bot = new Telegraf('<API TOKEN>');
 
 bot.start(ctx => {
-  // NOTE: not use spread operator, since render returns raw string
-  ctx.replyWithMarkdownV2(render(
+  // NOTE: use spread operator, since render returns raw string with formatting
+  ctx.reply(...render(
     <Fragment>
         <Bold>Some text is bolded</Bold>
     </Fragment>
-  ))
+  ), {}) // others Telegram reply options
 })
 
 bot.launch();
 
 ```
 
-
-Example with html:
+Example with string:
 
 ``` tsx
-import { h, Fragment } from 'preact';
-import {render, Bold} from '@tlgr/fmt/markdown';
+import {render, bold} from '@tlgr/fmt/string';
 
 const bot = new Telegraf('<API TOKEN>');
 
 bot.start(ctx => {
   // NOTE: not use spread operator, since render returns raw string
-  ctx.replyWithHTML(render(
-    <Fragment>
-        <Bold>Some text is bolded</Bold>
-    </Fragment>
+  ctx.reply(...render(
+   `${bold('this text is bolded')}`
   ))
 })
 
@@ -116,18 +111,3 @@ bot.launch();
 - link - create link. If `name` parameter is passed - create a text with link.
 - mention - add `@` sign at the start of string.
 - spoiler - make incoming text to spoiler
-
-## Example
-
-``` js
-import {Telegraf} from 'telegraf';
-import {fmt, bold, italic} from '@tlgr/fmt'
-
-const bot = new Telegraf('<API TOKEN>');
-
-bot.start(ctx => { // bot action when /start command typed
-  ctx.reply(...fmt(`This text is ${bold('bolded')}. This text is ${italic('italic')}`)); // This text is **bolded**. This text is _italic_
-});
-
-bot.launch();
-```

@@ -5,6 +5,10 @@ type Props = {
   url: string | URL;
 };
 
+/**
+ * @deprecated use `react` module instead
+ * 
+ */
 export default function (props: Props) {
   const link = props.url.toString();
   if (props.children) {

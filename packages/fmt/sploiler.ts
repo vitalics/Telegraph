@@ -1,6 +1,8 @@
-import { decorate } from './util';
+import { decorateTag } from './util';
 
 /**
+ * @deprecated use `string` module instead
+ * 
  * mark text as spoiler
  *
  * @export
@@ -9,5 +11,5 @@ import { decorate } from './util';
  * @return {*} Telegram spoiler string
  */
 export default function spoiler<S extends string>(str: S | TemplateStringsArray) {
-  return decorate(str, 'spoiler');
+  return decorateTag(str, 'spoiler');
 }

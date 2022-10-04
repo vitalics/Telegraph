@@ -4,7 +4,9 @@ export type Props = {
   children: string;
 };
 
-/** _Italic_ component */
+/** 
+ * @deprecated use `react` module instead
+ * _Italic_ component */
 export default function ({ children }: Props) {
   return <i>{children}</i>
 };

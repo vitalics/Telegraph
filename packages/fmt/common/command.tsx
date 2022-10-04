@@ -5,6 +5,7 @@ type Props = {
 };
 
 /**
+ * @deprecated use `react` module instead
  * Generic Command returns string with sigh `/`.
  * 
  *

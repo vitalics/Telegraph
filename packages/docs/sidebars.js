@@ -195,60 +195,128 @@ const sidebars = {
           "label": "📦 @tlgr/fmt",
           "items": [
             {
-              "type": "doc",
-              "id": "api/fmt/fmt"
+              type: 'category',
+              label: 'string',
+              items: [
+                {
+                  "type": "doc",
+                  "id": "api/fmt/string/render"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/string/bold"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/string/cash"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/string/code"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/string/command"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/string/email"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/string/hash"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/string/italic"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/string/link"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/string/mention"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/string/phone"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/string/spoiler"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/string/strikethrough"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/string/underline"
+                },
+              ]
             },
             {
-              "type": "doc",
-              "id": "api/fmt/bold"
-            },
-            {
-              "type": "doc",
-              "id": "api/fmt/cash"
-            },
-            {
-              "type": "doc",
-              "id": "api/fmt/code"
-            },
-            {
-              "type": "doc",
-              "id": "api/fmt/command"
-            },
-            {
-              "type": "doc",
-              "id": "api/fmt/email"
-            },
-            {
-              "type": "doc",
-              "id": "api/fmt/hash"
-            },
-            {
-              "type": "doc",
-              "id": "api/fmt/italic"
-            },
-            {
-              "type": "doc",
-              "id": "api/fmt/link"
-            },
-            {
-              "type": "doc",
-              "id": "api/fmt/mention"
-            },
-            {
-              "type": "doc",
-              "id": "api/fmt/phone"
-            },
-            {
-              "type": "doc",
-              "id": "api/fmt/spoiler"
-            },
-            {
-              "type": "doc",
-              "id": "api/fmt/strikethrough"
-            },
-            {
-              "type": "doc",
-              "id": "api/fmt/underline"
+              type: 'category',
+              label: 'react',
+              items: [
+                {
+                  "type": "doc",
+                  "id": "api/fmt/react/render"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/react/bold"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/react/cash"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/react/code"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/react/command"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/react/email"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/react/hash"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/react/italic"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/react/link"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/react/mention"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/react/phone"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/react/spoiler"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/react/strikethrough"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/fmt/react/underline"
+                },
+              ]
             },
           ]
         }

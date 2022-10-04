@@ -12,7 +12,9 @@ export type Props = {
   language?: string;
 };
 
-/** Code component */
+/** 
+ * @deprecated use `react` module instead
+ * Code component */
 export default function (props: Props) {
   return <code>{props.language}||{props.children}</code>
 };

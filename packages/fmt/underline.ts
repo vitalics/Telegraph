@@ -1,7 +1,8 @@
-import { decorate } from './util';
+import { decorateTag } from './util';
 
 /**
  * Makes text underline.
+ * @deprecated use `string` module instead
  *
  * @export
  * @template S
@@ -9,5 +10,5 @@ import { decorate } from './util';
  * @return {*} 
  */
 export default function underline<S extends string>(str: S | TemplateStringsArray) {
-  return decorate(str, 'u');
+  return decorateTag(str, 'u');
 }

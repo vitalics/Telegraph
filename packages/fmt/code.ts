@@ -1,6 +1,8 @@
-import { decorate } from './util';
+import { decorateTag } from './util';
 
 /**
+ * @deprecated use `string` module instead
+ * 
  * Creates `code` snippet.
  *
  * @export
@@ -10,5 +12,5 @@ import { decorate } from './util';
  * @return {*} telegram code snippet
  */
 export default function code<S extends string>(str: S, language: string = '') {
-  return decorate(`${language}||${str}`, 'code');
+  return decorateTag(`${language}||${str}`, 'code');
 }

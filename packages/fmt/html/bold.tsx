@@ -4,7 +4,10 @@ export type Props = {
   children: string | JSX.Element;
 };
 
-/** HTML __Bold__ component */
+/** 
+ * @deprecated use `react` module instead
+ * HTML __Bold__ component
+ *  */
 export default function ({ children }: Props) {
   return <b>{children}</b>
 };

@@ -15,7 +15,11 @@ type Props = {
   language?: string;
 };
 
-/** Generic Code block component */
+/** 
+ * Generic Code block component 
+ * @deprecated
+ * use `react` module instead
+ * */
 export default ({ children, type, language }: Props) => {
   const mode = type ?? 'inline';
   const lang = language ?? '';

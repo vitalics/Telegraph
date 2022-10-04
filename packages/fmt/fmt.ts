@@ -22,6 +22,8 @@ const tagTypes: Record<Decorations, string> = {
 const types = Object.keys(tagTypes) as (keyof typeof tagTypes)[];
 
 /**
+ * @deprecated use `string` module instead
+ * 
  * The `fmt()` method returns a formatted string using the first argument as a printf-like format string which can contain zero or more format specifiers. Each specifier is replaced with the converted value from the corresponding argument. Supported specifiers are:
  * 
  * If a specifier does not have a corresponding argument, it is not replaced:
