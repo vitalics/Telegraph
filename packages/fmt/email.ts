@@ -1,6 +1,8 @@
-import { decorate } from './util';
+import { decorateTag } from './util';
 
 /**
+ * @deprecated use `string` module instead
+ * 
  * Returns email.
  *
  * @example
@@ -13,5 +15,5 @@ import { decorate } from './util';
  * @return {*} string with format `name@host`. E.g `example@gmail.com`
  */
 export default function email<Name extends string, Host extends string>(name: Name, host: Host) {
-  return decorate(`${name}@${host}`, 'email')
+  return decorateTag(`${name}@${host}`, 'email')
 }

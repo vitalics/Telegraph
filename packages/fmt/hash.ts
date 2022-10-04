@@ -1,6 +1,8 @@
-import { decorate } from './util';
+import { decorateTag } from './util';
 
 /**
+ * @deprecated use `react` module instead
+ * 
  * Returns hashtag string.
  * 
  * In case of many test cases use `hashtags` function
@@ -12,10 +14,11 @@ import { decorate } from './util';
  * @return {*} 
  */
 export function hashtag<S extends string>(str: S | TemplateStringsArray) {
-  return decorate(`#${str}`, 'hash')
+  return decorateTag(`#${str}`, 'hash')
 }
 
 /**
+ * @deprecated use `string` module instead
  * Represents many hashes and concats it to a simple string joined by empty (` `) string
  *
  * @see {@link hashtag}

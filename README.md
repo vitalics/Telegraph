@@ -8,3 +8,7 @@ Implemented Components:
 - [quiz](./packages/quiz/)
 - [carousel](./packages/carousel/)
 - [fmt](./packages/fmt/)
+
+Develop only components:
+
+- [fig](./packages/fig/) - [fig](https://fig.io/) autocomplete suggestion

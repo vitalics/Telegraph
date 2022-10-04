@@ -34,6 +34,9 @@ type Options = {
 /**
  * Create cash tag with formatting.
  * 
+ * @deprecated use `string` module instead
+ * 
+ * 
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat for more
  *
  * @export

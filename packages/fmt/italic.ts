@@ -1,6 +1,8 @@
-import { decorate } from './util';
+import { decorateTag } from './util';
 
 /**
+ * @deprecated use `string` module instead
+ * 
  * Marks text _italic_.
  *
  * @export
@@ -9,5 +11,5 @@ import { decorate } from './util';
  * @return {*} 
  */
 export default function italic<S extends string>(str: S | TemplateStringsArray) {
-  return decorate(str, 'i')
+  return decorateTag(str, 'i')
 }

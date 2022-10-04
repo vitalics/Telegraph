@@ -5,6 +5,7 @@ type Props = {
 };
 
 /** 
+ * @deprecated use `react` module instead
  * Generic mention component
  * 
  * Append to child `@` sign.

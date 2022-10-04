@@ -1,6 +1,6 @@
 import { parsePhoneNumber, type PhoneNumberFormat } from 'awesome-phonenumber';
 
-import { decorate } from './util';
+import { decorateTag } from './util';
 
 type Options = {
   format?: PhoneNumberFormat;
@@ -13,6 +13,7 @@ type Options = {
 };
 
 /**
+ * @deprecated use `string` module instead
  * Represents phone number.
  *
  * Formatter takes from awesome-phonenumber package.
@@ -28,5 +29,5 @@ export default function phone(phone: `${number}` | number | `+${number}`, option
   if (!parsed.isValid()) {
     throw new TypeError(`Phone "${phone}" number is not valid`)
   }
-  return decorate(parsed.getNumber(options?.format), 'phone')
+  return decorateTag(parsed.getNumber(options?.format), 'phone')
 }

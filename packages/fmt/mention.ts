@@ -1,6 +1,8 @@
-import { decorate, decorateTag } from './util';
+import { decorateTag } from './util';
 
 /**
+ * @deprecated use `string` module instead
+ * 
  * Returns user mention telegram string.
  *
  * @example

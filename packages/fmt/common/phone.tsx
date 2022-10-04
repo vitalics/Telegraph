@@ -14,6 +14,7 @@ export type Props = {
 };
 
 /**
+ * @deprecated use `react` module instead
  * Represents phone number.
  *
  * Formatter takes from awesome-phonenumber package.

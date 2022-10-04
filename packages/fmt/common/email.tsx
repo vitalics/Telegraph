@@ -23,6 +23,7 @@ type Props = {
 };
 
 /** 
+ * @deprecated use `react` module instead
  * Generic Email component.
  * 
  * This component should include full `email` address 

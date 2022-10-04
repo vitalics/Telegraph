@@ -1,6 +1,8 @@
-import { decorate } from './util';
+import { decorateTag } from './util';
 
 /**
+ * @deprecated use `string` module instead
+ * 
  * Command returns string with sigh `/`.
  * 
  * **NOTE**: string should be as one word.
@@ -15,5 +17,5 @@ import { decorate } from './util';
  * @return {*} string
  */
 export default function command<S extends string>(str: S): `<command>/${S}</command>` {
-  return decorate(`/${str}`, 'command') as `<command>/${S}</command>`
+  return decorateTag(`/${str}`, 'command') as `<command>/${S}</command>`
 }

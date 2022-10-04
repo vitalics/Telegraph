@@ -29,7 +29,7 @@ In `tsconfig.json` file add next fields:
 
 ```jsx title="example.ts"
 import { h } from "preact";
-import { render, Bold } from "@tlgr/fmt/default";
+import { render, Bold } from "@tlgr/fmt/react";
 
 // rest code
 ```
@@ -38,7 +38,7 @@ import { render, Bold } from "@tlgr/fmt/default";
 
 ```jsx title="example.ts"
 import { h, Fragment } from "preact";
-import { render, Bold, Break, Italic } from "@tlgr/fmt/default";
+import { render, Bold, Break, Italic } from "@tlgr/fmt/react";
 
 import { Telegraf } from "telegraf";
 
@@ -59,16 +59,14 @@ bot.start((ctx) => {
 bot.launch();
 ```
 
-:::tip
+::: tip
 Better to wrap high-level component with `Fragment` component from `preact` library.
 :::
 
-## Limitations
+## Limitations & Pitfalls
 
 - Not use built-in componenets like `a`, `button` etc. Since telegram has a lot of limitations.
-- Use components only for your reply context. For `reply` use components from `default` folder.
-  For `replyWithHTML` use components from `html` folder.
-  for `replyWithMarkdown` and `replyWithMarkdownV2` use components from `markdown`.
+- Use components only for your reply context. For `reply` use components from `react` folder.
 - Each reply context should be call `render` function. As for previous limitation `render` function only for your using context.
 - `render` function in `default` function should be called with `rest/spread` operator, since `reply` function accepts text modifications(like bold, underline, etc.)
 - not all components can be combined with children(e.g. `Bold` and `Italic` can be combined)

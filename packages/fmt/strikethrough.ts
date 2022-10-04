@@ -1,6 +1,8 @@
-import { decorate } from './util';
+import { decorateTag } from './util';
 
 /**
+ * @deprecated use `string` module instead
+ * 
  * Marks string as ~~strikethrough~~.
  *
  * @export
@@ -9,5 +11,5 @@ import { decorate } from './util';
  * @return {*} telegram strikethrough text.
  */
 export default function strikethrough<S extends string>(str: S | TemplateStringsArray) {
-  return decorate(str, 'strikethrough');
+  return decorateTag(str, 'strikethrough');
 }
