@@ -1,6 +1,6 @@
 {
   "name": "@tlgr/fmt",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "Formatter functions for telegram reply context",
   "main": "./lib/index.js",
   "scripts": {
