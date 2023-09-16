@@ -1,18 +1,22 @@
-import { Fragment, h } from 'preact';
 import { Telegraf } from 'telegraf';
 
-import { Bold, Break, render, Spoiler } from './react';
+import { render, Text } from './src';
+import Break from './src/Break';
+import Mention from './src/mention';
 
 const TOKEN = '';
 const bot = new Telegraf(TOKEN);
 
-bot.start(ctx => {
-  ctx.reply(...render(
-    <Fragment>
-      <Bold>Some bold texts</Bold>
+bot.start(async ctx => {
+  await ctx.reply(...render(
+    <>
+      <Text.Bold>Some bold texts</Text.Bold>
       <Break />
-      Spoiler is <Spoiler>spoiler</Spoiler>
-    </Fragment>
+      Spoiler is <Text.Spoiler>spoiler</Text.Spoiler>
+      <Break />
+
+      I also mention you: <Mention username='sqrtapp' />
+    </>
   ))
 });
 
