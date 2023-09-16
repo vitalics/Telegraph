@@ -2,35 +2,23 @@
   "name": "@tlgr/fmt",
   "version": "1.5.2",
   "description": "Formatter functions for telegram reply context",
-  "main": "./lib/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "test": "jest"
+    "build": "tsup"
   },
   "exports": {
-    ".": "./lib/index.js",
-    "./package.json": "./package.json",
-    "./bin": null,
-    "./fmt": "./lib/fmt.js",
-    "./bold": "./lib/bold.js",
-    "./cash": "./lib/cash.js",
-    "./code": "./lib/code.js",
-    "./command": "./lib/command.js",
-    "./email": "./lib/email.js",
-    "./hash": "./lib/hash.js",
-    "./italic": "./lib/italic.js",
-    "./link": "./lib/link.js",
-    "./mention": "./lib/mention.js",
-    "./phone": "./lib/phone.js",
-    "./spoiler": "./lib/spoiler.js",
-    "./strikethrough": "./lib/strikethrough.js",
-    "./underline": "./lib/underline.js",
-    "./html/*": "./lib/html/*",
-    "./markdown/*": "./lib/markdown/*",
-    "./default/*": "./lib/default/*",
-    "./common/*": null,
-    "./react/*": "./lib/react/*",
-    "./string/*": "./lib/string/*"
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
   },
   "keywords": [
     "Telegram",
@@ -50,6 +38,10 @@
     "node-html-parser": "6.1.0",
     "preact": "10.11.0",
     "preact-render-to-string": "5.2.4",
+    "react-dom": "^17.0.2",
     "telegraf": "4.8.6"
+  },
+  "devDependencies": {
+    "tsup": "7.2.0"
   }
 }

@@ -2,8 +2,9 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "outDir": "lib",
-    "jsx": "react",
-    "jsxFactory": "h"
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
+    "jsx": "react-jsx",
   },
   "exclude": [
     "lib"
